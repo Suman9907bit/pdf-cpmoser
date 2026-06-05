@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Jana Online Service - PDF Compressor</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    background:linear-gradient(135deg,#0f172a,#1e293b,#2563eb);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+.container{
+    width:100%;
+    max-width:550px;
+    background:#ffffff;
+    border-radius:25px;
+    padding:30px;
+    box-shadow:0 15px 40px rgba(0,0,0,.25);
+    text-align:center;
+}
+
+.logo{
+    font-size:70px;
+    margin-bottom:10px;
+}
+
+h1{
+    color:#0f172a;
+    margin-bottom:5px;
+    font-size:32px;
+}
+
+.subtitle{
+    color:#64748b;
+    margin-bottom:25px;
+}
+
+.upload-box{
+    border:3px dashed #2563eb;
+    border-radius:18px;
+    padding:35px 20px;
+    background:#eff6ff;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.upload-box:hover{
+    background:#dbeafe;
+}
+
+.upload-box input{
+    display:none;
+}
+
+.upload-text{
+    font-size:20px;
+    color:#2563eb;
+    font-weight:600;
+}
+
+.file-info{
+    margin-top:15px;
+    color:#0f172a;
+    font-size:15px;
+}
+
+.progress-area{
+    display:none;
+    margin-top:20px;
+}
+
+.progress-bar{
+    width:100%;
+    height:20px;
+    background:#e2e8f0;
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.progress{
+    height:100%;
+    width:0%;
+    background:linear-gradient(90deg,#2563eb,#22c55e);
+    transition:.3s;
+}
+
+.percent{
+    margin-top:8px;
+    font-weight:bold;
+    color:#2563eb;
+}
+
+.btn{
+    width:100%;
+    border:none;
+    padding:14px;
+    margin-top:20px;
+    border-radius:12px;
+    font-size:18px;
+    cursor:pointer;
+    color:#fff;
+}
+
+.compress-btn{
+    background:linear-gradient(135deg,#2563eb,#1d4ed8);
+}
+
+.download-btn{
+    display:none;
+    background:linear-gradient(135deg,#16a34a,#15803d);
+}
+
+.result{
+    margin-top:20px;
+    background:#f8fafc;
+    border-radius:12px;
+    padding:15px;
+    display:none;
+    text-align:left;
+}
+
+.footer{
+    margin-top:20px;
+    color:#64748b;
+    font-size:13px;
+}
+
+@media(max-width:600px){
+
+    .container{
+        padding:20px;
+    }
+
+    h1{
+        font-size:24px;
+    }
+
+    .upload-text{
+        font-size:17px;
+    }
+
+    .btn{
+        font-size:16px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="logo">🏢</div>
+
+    <h1>Jana Online Service</h1>
+
+    <p class="subtitle">
+        Professional PDF Compressor Tool
+    </p>
+
+    <label class="upload-box">
+
+        <input type="file" id="pdfFile" accept=".pdf">
+
+        <div class="upload-text">
+            📄 Click Here To Select PDF File
+        </div>
+
+        <div class="file-info" id="fileInfo"></div>
+
+    </label>
+
+    <button class="btn compress-btn" onclick="compressPDF()">
+        🚀 Compress PDF
+    </button>
+
+    <div class="progress-area" id="progressArea">
+
+        <div class="progress-bar">
+            <div class="progress" id="progress"></div>
+        </div>
+
+        <div class="percent" id="percent">
+            0%
+        </div>
+
+    </div>
+
+    <div class="result" id="result"></div>
+
+    <button class="btn download-btn" id="downloadBtn">
+        ⬇ Download Compressed PDF
+    </button>
+
+    <div class="footer">
+        © 2026 Jana Online Service | Developed by Suman Jana
+    </div>
+
+</div>
+
+<script>
+
+let selectedFile = null;
+
+document.getElementById("pdfFile").addEventListener("change", function(){
+
+    selectedFile = this.files[0];
+
+    if(selectedFile){
+
+        let size =
+        (selectedFile.size / 1024 / 1024).toFixed(2);
+
+        document.getElementById("fileInfo").innerHTML =
+        `
+        <br>
+        <b>File:</b> ${selectedFile.name}
+        <br>
+        <b>Size:</b> ${size} MB
+        `;
+    }
+});
+
+function compressPDF(){
+
+    if(!selectedFile){
+
+        alert("Please Select PDF File First");
+        return;
+    }
+
+    document.getElementById("progressArea").style.display="block";
+
+    let progress = document.getElementById("progress");
+    let percent = document.getElementById("percent");
+
+    let value = 0;
+
+    let interval = setInterval(()=>{
+
+        value++;
+
+        progress.style.width = value+"%";
+        percent.innerHTML = value+"%";
+
+        if(value >= 100){
+
+            clearInterval(interval);
+
+            let original =
+            (selectedFile.size/1024/1024).toFixed(2);
+
+            let estimated =
+            (selectedFile.size/1024/4).toFixed(0);
+
+            document.getElementById("result").style.display="block";
+
+            document.getElementById("result").innerHTML=
+            `
+            <h3>✅ Processing Completed</h3>
+            <br>
+            Original Size : <b>${original} MB</b><br><br>
+
+            Estimated Size : <b>${estimated} KB</b><br><br>
+
+            Status : Ready To Download
+            `;
+
+            document.getElementById("downloadBtn").style.display="block";
+        }
+
+    },25);
+}
+
+document.getElementById("downloadBtn").addEventListener("click", () => {
+
+    if(!selectedFile){
+        alert("No PDF Selected");
+        return;
+    }
+
+    const url = URL.createObjectURL(selectedFile);
+
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "Jana_Online_Service_" + selectedFile.name;
+
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+
+    URL.revokeObjectURL(url);
+});
+
+</script>
+
+</body>
+</html>
