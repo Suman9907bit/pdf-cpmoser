@@ -1,2701 +1,1056 @@
 <!DOCTYPE html>
-<!-- saved from url=(0043)https://suman9907bit.github.io/pdf-cpmoser/ -->
-<html lang="bn"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>Professional PDF Tools - Jana Online Service</title>
 
 <style>
-
-/* =====================================
-   GLOBAL FONT
-===================================== */
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
 
 body{
-    font-family:'Hind Siliguri','Noto Sans Bengali',sans-serif;
-    font-weight:500;
-background-image:url("https://img.magnific.com/free-photo/blurred-abstract-background-interior-view-looking-out-toward-empty-office-lobby-entrance-doors-glass-curtain-wall-with-frame_1339-6364.jpg?semt=ais_hybrid&w=740&q=80");
-  background-size:cover;
-  background-position:center center;
-  background-repeat:no-repeat;
-  background-attachment:fixed;
-
+  font-family:Arial,"Noto Sans Bengali",sans-serif;
+  background:#f1f5f9;
+  color:#172033;
 }
 
-p,span,div,li,td,th,a,
-input,textarea,button{
-    font-family:'Hind Siliguri','Noto Sans Bengali',sans-serif;
+.header{
+  background:linear-gradient(135deg,#00695c,#00897b,#00acc1);
+  color:white;
+  padding:22px 15px;
+  text-align:center;
+  box-shadow:0 3px 15px #0002;
 }
 
-h1,h2,h3,h4,h5,h6{
-    font-family:'Hind Siliguri','Noto Sans Bengali',sans-serif;
+.header h1{
+  font-size:25px;
+  margin-bottom:6px;
 }
 
-
-/* =====================================
-   PREMIUM SLIM HEADER
-===================================== */
-
-.ocb-topbar{
-
-    position:sticky;
-    top:0;
-
-    z-index:9999;
-
-   background-image:url("https://st2.depositphotos.com/17620692/43993/v/450/depositphotos_439939634-stock-illustration-technology-banner-design-white-grey.jpg");
-  background-size:cover;
-  background-position:center center;
-  background-repeat:no-repeat;
-  background-attachment:fixed;
-
-    border-bottom:
-        1px solid rgba(255,255,255,.08);
-
-    box-shadow:
-        0 5px 20px rgba(0,0,0,.18);
-
-    backdrop-filter:blur(14px);
+.header p{
+  font-size:13px;
+  opacity:.95;
 }
 
-
-/* MAIN WIDTH */
-
-.ocb-topbar .ocb-wrap{
-
-    width:min(
-        1280px,
-        calc(100% - 34px)
-    );
-
-    margin:auto;
+.container{
+  max-width:1100px;
+  margin:auto;
+  padding:18px;
 }
 
-
-/* =====================================
-   HEADER HEIGHT
-===================================== */
-
-.ocb-topbar .ocb-nav{
-
-    min-height:64px;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:space-between;
-
-    gap:18px;
+.upload-box{
+  background:white;
+  border-radius:18px;
+  padding:22px;
+  text-align:center;
+  border:2px dashed #00a896;
+  margin-bottom:18px;
 }
 
+.upload-box input{
+  display:none;
+}
 
-/* =====================================
-   BRAND
-===================================== */
+.upload-btn{
+  display:inline-block;
+  background:#00897b;
+  color:white;
+  padding:13px 22px;
+  border-radius:10px;
+  cursor:pointer;
+  font-weight:bold;
+}
 
-.ocb-topbar .ocb-brand{
+.file-count{
+  margin-top:10px;
+  color:#667085;
+  font-size:14px;
+}
 
-    display:flex;
+.tools{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:14px;
+}
 
-    align-items:center;
+.tool{
+  background:white;
+  border-radius:17px;
+  padding:20px 15px;
+  text-align:center;
+  box-shadow:0 5px 18px #00000010;
+  border:1px solid #e5e7eb;
+  cursor:pointer;
+  transition:.2s;
+}
 
+.tool:hover{
+  transform:translateY(-3px);
+  box-shadow:0 8px 25px #0002;
+}
+
+.icon{
+  font-size:34px;
+  margin-bottom:9px;
+}
+
+.tool h3{
+  font-size:16px;
+  margin-bottom:5px;
+}
+
+.tool p{
+  color:#667085;
+  font-size:12px;
+}
+
+.panel{
+  display:none;
+  background:white;
+  margin-top:20px;
+  padding:20px;
+  border-radius:18px;
+  box-shadow:0 5px 20px #0001;
+}
+
+.panel.active{
+  display:block;
+}
+
+.panel h2{
+  color:#00695c;
+  margin-bottom:15px;
+  font-size:21px;
+}
+
+.row{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  align-items:center;
+}
+
+select,
+input[type="number"],
+input[type="text"]{
+  padding:11px;
+  border:1px solid #ccd5df;
+  border-radius:9px;
+  outline:none;
+}
+
+button{
+  border:0;
+  border-radius:9px;
+  padding:11px 16px;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+.primary{
+  background:#00897b;
+  color:white;
+}
+
+.danger{
+  background:#e53935;
+  color:white;
+}
+
+.dark{
+  background:#263238;
+  color:white;
+}
+
+.preview{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(130px,1fr));
+  gap:12px;
+  margin-top:15px;
+}
+
+.preview-item{
+  background:#f8fafc;
+  border:1px solid #ddd;
+  border-radius:10px;
+  padding:8px;
+  text-align:center;
+}
+
+.preview-item img{
+  max-width:100%;
+  height:130px;
+  object-fit:contain;
+  border-radius:7px;
+}
+
+.status{
+  margin-top:15px;
+  padding:12px;
+  background:#ecfdf3;
+  border-radius:10px;
+  color:#067647;
+  display:none;
+}
+
+.progress{
+  height:8px;
+  background:#e5e7eb;
+  border-radius:20px;
+  margin-top:12px;
+  overflow:hidden;
+}
+
+.progress-bar{
+  height:100%;
+  width:0%;
+  background:#00897b;
+  transition:.3s;
+}
+
+.footer{
+  text-align:center;
+  padding:25px 10px;
+  color:#667085;
+  font-size:12px;
+}
+
+/* Dark */
+.dark-mode{
+  background:#101820;
+  color:#eee;
+}
+
+.dark-mode .tool,
+.dark-mode .panel,
+.dark-mode .upload-box{
+  background:#18232d;
+  color:#eee;
+  border-color:#334155;
+}
+
+.dark-mode .tool p,
+.dark-mode .file-count{
+  color:#b8c1cc;
+}
+
+@media(max-width:600px){
+  .header h1{
+    font-size:21px;
+  }
+
+  .tools{
+    grid-template-columns:repeat(2,1fr);
     gap:10px;
+  }
 
-    text-decoration:none;
+  .tool{
+    padding:16px 8px;
+  }
 
-    flex-shrink:0;
+  .icon{
+    font-size:28px;
+  }
 
-    min-width:0;
+  .tool h3{
+    font-size:14px;
+  }
 }
-
-
-/* LOGO */
-
-.ocb-topbar .ocb-brand-logo{
-
-    width:48px;
-
-    height:48px;
-
-    border-radius:12px;
-
-    overflow:hidden;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    flex-shrink:0;
-
-    background:
-        rgba(255,255,255,.06);
-
-    border:
-        1px solid rgba(255,255,255,.10);
-
-    box-shadow:
-        inset 0 1px 0 rgba(255,255,255,.10),
-        0 5px 15px rgba(0,0,0,.18);
-}
-
-
-.ocb-topbar .ocb-brand-logo img{
-
-    width:100%;
-
-    height:100%;
-
-    object-fit:contain;
-
-    display:block;
-}
-
-
-/* =====================================
-   BRAND TEXT
-===================================== */
-
-.ocb-topbar .ocb-brand-text{
-
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:center;
-
-    min-width:0;
-
-    line-height:1;
-}
-
-
-.ocb-topbar .ocb-brand-text strong{
-
-    color:#ffffff;
-
-    font-size:20px;
-
-    font-weight:800;
-
-    letter-spacing:.2px;
-
-    white-space:nowrap;
-}
-
-
-.ocb-topbar .ocb-brand-text strong em{
-
-    color:#35e574;
-
-    font-style:normal;
-}
-
-
-.ocb-topbar .ocb-brand-text small{
-
-    margin-top:5px;
-
-    color:#bfe9ce;
-
-    font-size:10px;
-
-    font-weight:600;
-
-    letter-spacing:.15px;
-}
-
-
-/* =====================================
-   MENU BOX
-===================================== */
-
-.ocb-topbar .ocb-menu{
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    gap:3px;
-
-    padding:4px;
-
-    border-radius:12px;
-
-    background:
-        rgba(255,255,255,.035);
-
-    border:
-        1px solid rgba(255,255,255,.06);
-
-    box-shadow:
-        inset 0 1px 0 rgba(255,255,255,.04);
-}
-
-
-/* MENU LINKS */
-
-.ocb-topbar .ocb-menu a{
-
-    position:relative;
-
-    display:inline-flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    padding:7px 12px;
-
-    border-radius:9px;
-
-    color:#eaf8ef;
-
-    font-size:13px;
-
-    line-height:1;
-
-    font-weight:700;
-
-    text-decoration:none;
-
-    transition:
-        background .22s ease,
-        color .22s ease,
-        transform .22s ease;
-}
-
-
-.ocb-topbar .ocb-menu a:hover{
-
-    color:#ffffff;
-
-    background:
-        rgba(47,222,108,.12);
-
-    transform:translateY(-1px);
-}
-
-
-/* ACTIVE MENU */
-
-.ocb-topbar .ocb-menu a.active{
-
-    color:#48e983;
-
-    background:
-        rgba(45,221,106,.12);
-
-    box-shadow:
-        inset 0 0 0 1px
-        rgba(64,231,126,.12);
-}
-
-
-/* ACTIVE UNDERLINE */
-
-.ocb-topbar .ocb-menu a.active::after{
-
-    content:"";
-
-    position:absolute;
-
-    left:28%;
-
-    right:28%;
-
-    bottom:2px;
-
-    height:2px;
-
-    border-radius:10px;
-
-    background:#3be477;
-
-    box-shadow:
-        0 0 8px rgba(59,228,119,.45);
-}
-
-
-/* =====================================
-   SUBSCRIBE BUTTON
-===================================== */
-
-.ocb-topbar .ocb-sub{
-
-    display:inline-flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    padding:9px 17px;
-
-    border-radius:10px;
-
-    text-decoration:none;
-
-    color:#ffffff;
-
-    font-size:13px;
-
-    line-height:1;
-
-    font-weight:800;
-
-    white-space:nowrap;
-
-    flex-shrink:0;
-
-    background:
-        linear-gradient(
-            135deg,
-            #19c957,
-            #31df77
-        );
-
-    box-shadow:
-        0 6px 18px rgba(26,201,87,.25),
-        inset 0 1px 0 rgba(255,255,255,.22);
-
-    transition:.22s ease;
-}
-
-
-.ocb-topbar .ocb-sub:hover{
-
-    transform:translateY(-2px);
-
-    box-shadow:
-        0 9px 22px rgba(26,201,87,.32);
-}
-
-
-/* =====================================
-   TABLET
-===================================== */
-
-@media(max-width:1050px){
-
-    .ocb-topbar .ocb-nav{
-
-        min-height:60px;
-
-        gap:10px;
-    }
-
-
-    .ocb-topbar .ocb-brand-logo{
-
-        width:44px;
-
-        height:44px;
-    }
-
-
-    .ocb-topbar .ocb-brand-text strong{
-
-        font-size:17px;
-    }
-
-
-    .ocb-topbar .ocb-brand-text small{
-
-        font-size:9px;
-    }
-
-
-    .ocb-topbar .ocb-menu a{
-
-        padding:7px 9px;
-
-        font-size:12px;
-    }
-
-
-    .ocb-topbar .ocb-sub{
-
-        padding:8px 13px;
-
-        font-size:12px;
-    }
-
-}
-
-
-/* =====================================
-   MOBILE
-===================================== */
-
-@media(max-width:768px){
-
-    .ocb-topbar .ocb-wrap{
-
-        width:calc(100% - 18px);
-    }
-
-
-    .ocb-topbar .ocb-nav{
-
-        min-height:56px;
-
-        gap:8px;
-
-        flex-wrap:nowrap;
-    }
-
-
-    /* LOGO */
-
-    .ocb-topbar .ocb-brand-logo{
-
-        width:40px;
-
-        height:40px;
-
-        border-radius:10px;
-    }
-
-
-    /* BRAND */
-
-    .ocb-topbar .ocb-brand{
-
-        gap:7px;
-    }
-
-
-    .ocb-topbar .ocb-brand-text strong{
-
-        font-size:15px;
-
-        white-space:nowrap;
-    }
-
-
-    .ocb-topbar .ocb-brand-text small{
-
-        font-size:8px;
-
-        margin-top:4px;
-    }
-
-
-    /* MOBILE MENU */
-
-    .ocb-topbar .ocb-menu{
-
-        display:none;
-    }
-
-
-    /* SUBSCRIBE */
-
-    .ocb-topbar .ocb-sub{
-
-        margin-left:auto;
-
-        padding:8px 12px;
-
-        font-size:11px;
-
-        border-radius:9px;
-    }
-
-}
-
-
-/* =====================================
-   VERY SMALL MOBILE
-===================================== */
-
-@media(max-width:430px){
-
-    .ocb-topbar .ocb-brand-text strong{
-
-        font-size:13px;
-    }
-
-
-    .ocb-topbar .ocb-brand-text small{
-
-        font-size:7px;
-    }
-
-
-    .ocb-topbar .ocb-brand-logo{
-
-        width:38px;
-
-        height:38px;
-    }
-
-
-    .ocb-topbar .ocb-sub{
-
-        padding:7px 9px;
-
-        font-size:10px;
-    }
-
-}
-
 </style>
+</head>
 
+<body>
 
-</head><body>
-
-
-<header class="ocb-topbar">
-
-<div class="ocb-wrap ocb-nav">
-
-
-    <!-- LOGO + BRAND -->
-
-    <a class="ocb-brand" href="https://suman9907bit.github.io/Add-page/">
-
-        <span class="ocb-brand-logo">
-
-            <img src="./suman9907bit.github.io_files/unnamed.webp" alt="jana online service Logo">
-
-        </span>
-
-
-        <span class="ocb-brand-text">
-
-            <strong>
-               JANA ONLINE 
-                <em>SERVICE</em>
-            </strong>
-
-            <small>
-                আপনার সমস্যার একমাত্র সমাধান
-            </small>
-
-        </span>
-
-    </a>
-
-
-    <!-- MENU -->
-
-    
-    <!-- SUBSCRIBE -->
-
-    <a class="https://suman9907bit.github.io/JOS/" target="_blank" rel="noopener">
-
-       LOGING PANEL
-
-    </a>
-
-
-</div>
-
+<header class="header">
+  <h1>📄 Professional PDF Tools</h1>
+  <p>JANA ONLINE SERVICE • Fast • Easy • Mobile Friendly</p>
 </header>
-<style>
-.tools-page{
-    padding:22px 0 42px;
-}
-.tools-page-wrap{
-    width:min(1280px,calc(100% - 28px));
-    margin:auto;
-}
-.tools-page-head{
-    position:relative;
-    overflow:hidden;
-    padding:24px 22px;
-    border-radius:22px;
-    color:#fff;
-    background:
-        radial-gradient(circle at 18% 18%,rgba(255,255,255,.17),transparent 28%),
-        radial-gradient(circle at 84% 86%,rgba(255,64,129,.20),transparent 30%),
-        linear-gradient(120deg,#f57c00 0%,#ff9800 42%,#e91e63 100%);
-    box-shadow:0 16px 40px rgba(233,30,99,.16),0 14px 34px rgba(255,152,0,.18);
-}
-.tools-page-head h1{
-    margin:0;
-    font-size:30px;
-    line-height:1.15;
-    font-weight:900;
-}
-.tools-page-head p{
-    margin:7px 0 0;
-    color:#fff7ef;
-    font-size:13px;
-    line-height:1.6;
-    font-weight:700;
-}
-.tools-back{
-    display:inline-flex;
-    align-items:center;
-    gap:7px;
-    margin-bottom:14px;
-    padding:9px 13px;
-    border-radius:999px;
-    text-decoration:none;
-    color:#334155;
-    background:#fff;
-    border:1px solid #e5e7eb;
-    box-shadow:0 6px 18px rgba(15,23,42,.06);
-    font-size:11px;
-    font-weight:900;
-}
-.tools-search{
-    display:flex;
-    align-items:center;
-    gap:8px;
-    margin:18px 0 14px;
-    padding:12px 14px;
-    border-radius:14px;
-    background:#fff;
-    border:1px solid #e6ebf0;
-    box-shadow:0 8px 22px rgba(15,35,55,.06);
-}
-.tools-search input{
-    width:100%;
-    border:0;
-    outline:0;
-    background:transparent;
-    color:#173146;
-    font-size:13px;
-}
-.tools-grid{
-    display:grid;
-    grid-template-columns:repeat(4,minmax(0,1fr));
-    gap:12px;
-}
-.tool-card{
-    --c1:#ff3b6b;
-    --c2:#ff7b54;
-    --soft:rgba(255,59,107,.18);
-    position:relative;
-    isolation:isolate;
-    overflow:hidden;
-    min-height:94px;
-    display:flex;
-    align-items:center;
-    gap:10px;
-    padding:13px;
-    border-radius:16px;
-    text-decoration:none;
-    color:#143049;
-    background:
-        radial-gradient(circle at 10% 15%,var(--soft),transparent 38%),
-        linear-gradient(145deg,rgba(255,255,255,.93),rgba(255,255,255,.72));
-    border:1px solid rgba(255,255,255,.82);
-    box-shadow:0 10px 24px rgba(30,55,75,.09),inset 0 1px 0 rgba(255,255,255,.95);
-    transition:transform .25s ease,box-shadow .25s ease;
-}
-.tool-card:hover{
-    transform:translateY(-3px);
-    box-shadow:0 16px 30px rgba(30,55,75,.13);
-}
-.tool-card:nth-child(8n+1){--c1:#ff3b6b;--c2:#ff7b54;--soft:rgba(255,59,107,.18)}
-.tool-card:nth-child(8n+2){--c1:#ff8a00;--c2:#ffd43b;--soft:rgba(255,138,0,.18)}
-.tool-card:nth-child(8n+3){--c1:#0b84ff;--c2:#3bbcf8;--soft:rgba(11,132,255,.18)}
-.tool-card:nth-child(8n+4){--c1:#7c3aed;--c2:#c084fc;--soft:rgba(124,58,237,.18)}
-.tool-card:nth-child(8n+5){--c1:#00a86b;--c2:#3ad889;--soft:rgba(0,168,107,.18)}
-.tool-card:nth-child(8n+6){--c1:#00a6c7;--c2:#2dd4bf;--soft:rgba(0,166,199,.18)}
-.tool-card:nth-child(8n+7){--c1:#e83e8c;--c2:#fb7185;--soft:rgba(232,62,140,.18)}
-.tool-card:nth-child(8n+8){--c1:#4f46e5;--c2:#60a5fa;--soft:rgba(79,70,229,.18)}
-.tool-icon{
-    width:44px;
-    height:44px;
-    display:grid;
-    place-items:center;
-    flex:0 0 auto;
-    border-radius:12px;
-    color:#fff;
-    font-size:21px;
-    background:linear-gradient(135deg,var(--c1),var(--c2));
-    border:1px solid rgba(255,255,255,.48);
-    box-shadow:inset 0 1px 0 rgba(255,255,255,.44),0 8px 18px var(--soft);
-}
-.tool-info{
-    min-width:0;
-    flex:1;
-}
-.tool-info strong{
-    display:block;
-    color:var(--c1);
-    font-size:12.5px;
-    line-height:1.3;
-    font-weight:900;
-}
-.tool-info small{
-    display:block;
-    margin-top:3px;
-    color:#5f6f83;
-    font-size:9.5px;
-    line-height:1.35;
-    font-weight:650;
-}
-.target-box{
-    margin-top:18px;
-    padding:14px;
-    border-radius:16px;
-    background:#fff8ef;
-    border:1px solid #f4e1c5;
-}
-.target-title{
-    margin-bottom:10px;
-    color:#664015;
-    font-size:12px;
-    font-weight:900;
-}
-.target-chips{
-    display:flex;
-    flex-wrap:wrap;
-    gap:8px;
-}
-.target-chips a{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    padding:8px 11px;
-    border-radius:999px;
-    text-decoration:none;
-    color:#9a5a0d;
-    background:#fff;
-    border:1px solid #efd4b1;
-    font-size:10px;
-    font-weight:900;
-    transition:.2s ease;
-}
-.target-chips a:hover{
-    color:#fff;
-    background:#f49a27;
-    border-color:#f49a27;
-}
-.tools-note{
-    margin-top:14px;
-    padding:10px 12px;
-    border-radius:12px;
-    color:#5e7068;
-    background:#f3faf6;
-    border:1px solid #e1f0e7;
-    font-size:10px;
-    line-height:1.55;
-}
-@media(max-width:1000px){
-    .tools-grid{grid-template-columns:repeat(3,minmax(0,1fr));}
-}
-@media(max-width:700px){
-    .tools-page-wrap{width:calc(100% - 18px);}
-    .tools-page-head{padding:20px 16px;border-radius:18px;}
-    .tools-page-head h1{font-size:24px;}
-    .tools-page-head p{font-size:11px;}
-    .tools-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;}
-    .tool-card{min-height:84px;padding:10px;border-radius:13px;gap:8px;}
-    .tool-icon{width:38px;height:38px;border-radius:10px;font-size:19px;}
-    .tool-info strong{font-size:11px;}
-    .tool-info small{font-size:8.5px;}
-}
-@media(max-width:420px){
-    .tools-grid{grid-template-columns:1fr;}
-}
 
-/* ===== STUDIO TOOL ===== */
-.studio-tool{margin:18px 0 16px;padding:18px;border-radius:20px;background:linear-gradient(145deg,#fff,#f8fbff);border:1px solid #dbe7f4;box-shadow:0 12px 30px rgba(25,55,90,.08)}
-.studio-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}.studio-title-wrap{display:flex;align-items:center;gap:11px}.studio-icon{width:46px;height:46px;display:grid;place-items:center;border-radius:13px;color:#fff;font-size:22px;background:linear-gradient(135deg,#2563eb,#7c3aed)}.studio-title{margin:0;color:#172554;font-size:21px;font-weight:900}.studio-sub{margin:3px 0 0;color:#64748b;font-size:10.5px;font-weight:700}.studio-size-badge{padding:8px 11px;border-radius:999px;color:#4338ca;background:#eef2ff;border:1px solid #d9ddff;font-size:10px;font-weight:900}.studio-body{display:grid;grid-template-columns:1fr 1.2fr;gap:14px}.studio-upload{display:flex;flex-direction:column;justify-content:center;min-height:210px;padding:18px;border-radius:16px;border:2px dashed #a8bce4;background:#f8fbff;text-align:center;cursor:pointer}.studio-upload:hover,.studio-upload.dragover{border-color:#6366f1;background:#f3f5ff}.studio-upload-icon{font-size:34px}.studio-upload strong{margin-top:7px;color:#1e293b;font-size:15px;font-weight:900}.studio-upload small{margin-top:5px;color:#64748b;font-size:10px;line-height:1.5}#studioPhotoInput{display:none}.studio-preview-wrap{min-height:210px;padding:14px;border-radius:16px;background:#0f172a;display:flex;align-items:center;justify-content:center;overflow:hidden}.studio-preview-empty{color:#cbd5e1;text-align:center;font-size:11px;line-height:1.6}#studioPreview{max-width:100%;max-height:230px;border-radius:10px;display:none}.studio-status{margin-top:12px;padding:9px 11px;border-radius:11px;color:#475569;background:#f8fafc;border:1px solid #e2e8f0;font-size:10px;font-weight:700}.studio-status.success{color:#166534;background:#f0fdf4;border-color:#bbf7d0}.studio-status.error{color:#991b1b;background:#fef2f2;border-color:#fecaca}.studio-downloads{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:14px}.studio-download-btn{border:0;cursor:pointer;padding:12px 10px;border-radius:13px;color:#fff;font-size:10.5px;line-height:1.35;font-weight:900;background:linear-gradient(135deg,#2563eb,#7c3aed)}.studio-download-btn:nth-child(2){background:linear-gradient(135deg,#0f766e,#14b8a6)}.studio-download-btn:nth-child(3){background:linear-gradient(135deg,#ea580c,#f59e0b)}.studio-download-btn:nth-child(4){background:linear-gradient(135deg,#be123c,#ec4899)}.studio-download-btn:nth-child(5){background:linear-gradient(135deg,#1d4ed8,#06b6d4)}.studio-download-btn:nth-child(6){background:linear-gradient(135deg,#047857,#22c55e)}.studio-download-btn:nth-child(7){background:linear-gradient(135deg,#6d28d9,#a855f7)}.studio-download-btn:disabled{opacity:.45;cursor:not-allowed}.studio-help{margin-top:12px;color:#64748b;font-size:9.5px;line-height:1.55}@media(max-width:900px){.studio-body{grid-template-columns:1fr}.studio-downloads{grid-template-columns:repeat(2,1fr)}}@media(max-width:520px){.studio-downloads{grid-template-columns:1fr}.studio-size-badge{font-size:8.5px}.studio-title{font-size:18px}}
+<div class="container">
 
+  <!-- Upload -->
+  <div class="upload-box">
 
+    <label for="fileInput" class="upload-btn">
+      📂 Select Files
+    </label>
 
-/* ===== STUDIO FIXED-RATIO CROP (1.1 × 1.35) ===== */
-.studio-crop-modal{
-    position:fixed;
-    inset:0;
-    z-index:99999;
-    display:none;
-    align-items:center;
-    justify-content:center;
-    padding:18px;
-    background:rgba(2,6,23,.76);
-    backdrop-filter:blur(5px);
-}
-.studio-crop-modal.open{display:flex}
-.studio-crop-card{
-    width:min(920px,96vw);
-    max-height:94vh;
-    overflow:auto;
-    border-radius:20px;
-    background:#fff;
-    box-shadow:0 28px 80px rgba(0,0,0,.28);
-}
-.studio-crop-head{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:14px;
-    padding:16px 18px;
-    border-bottom:1px solid #e5e7eb;
-}
-.studio-crop-head h3{
-    margin:0;
-    color:#172554;
-    font-size:18px;
-    font-weight:900;
-}
-.studio-crop-head small{
-    display:block;
-    margin-top:4px;
-    color:#64748b;
-    font-size:10px;
-    font-weight:700;
-}
-.studio-crop-close{
-    border:0;
-    width:36px;
-    height:36px;
-    border-radius:10px;
-    cursor:pointer;
-    color:#334155;
-    background:#f1f5f9;
-    font-size:19px;
-    font-weight:900;
-}
-.studio-crop-body{padding:16px}
-.studio-crop-stage{
-    position:relative;
-    width:100%;
-    max-width:780px;
-    margin:auto;
-    background:#0f172a;
-    border-radius:16px;
-    overflow:hidden;
-    touch-action:none;
-    user-select:none;
-}
-#studioCropCanvas{
-    width:100%;
-    height:auto;
-    display:block;
-}
-.studio-crop-box{
-    position:absolute;
-    border:2px solid #22c55e;
-    box-shadow:0 0 0 9999px rgba(0,0,0,.48),0 0 0 1px rgba(255,255,255,.9) inset;
-    cursor:move;
-    touch-action:none;
-}
-.studio-crop-box::before,
-.studio-crop-box::after{
-    content:"";
-    position:absolute;
-    background:rgba(255,255,255,.65);
-    pointer-events:none;
-}
-.studio-crop-box::before{
-    left:33.333%;top:0;bottom:0;width:1px;
-    box-shadow:calc(var(--crop-w, 100px)/3) 0 0 rgba(255,255,255,.65);
-}
-.studio-crop-box::after{
-    top:33.333%;left:0;right:0;height:1px;
-    box-shadow:0 calc(var(--crop-h, 100px)/3) 0 rgba(255,255,255,.65);
-}
-.studio-crop-handle{
-    position:absolute;
-    width:18px;
-    height:18px;
-    border-radius:50%;
-    background:#fff;
-    border:3px solid #22c55e;
-    box-shadow:0 2px 8px rgba(0,0,0,.25);
-}
-.studio-crop-handle.tl{left:-10px;top:-10px;cursor:nwse-resize}
-.studio-crop-handle.tr{right:-10px;top:-10px;cursor:nesw-resize}
-.studio-crop-handle.bl{left:-10px;bottom:-10px;cursor:nesw-resize}
-.studio-crop-handle.br{right:-10px;bottom:-10px;cursor:nwse-resize}
-.studio-crop-note{
-    margin:12px 0 0;
-    padding:10px 12px;
-    border-radius:12px;
-    color:#475569;
-    background:#f8fafc;
-    border:1px solid #e2e8f0;
-    font-size:10.5px;
-    line-height:1.55;
-    font-weight:700;
-}
-.studio-crop-actions{
-    display:flex;
-    justify-content:flex-end;
-    gap:10px;
-    padding:14px 18px 18px;
-    border-top:1px solid #eef2f7;
-}
-.studio-crop-btn{
-    border:0;
-    cursor:pointer;
-    padding:11px 16px;
-    border-radius:12px;
-    font-size:11px;
-    font-weight:900;
-}
-.studio-crop-cancel{background:#e2e8f0;color:#334155}
-.studio-crop-ok{background:linear-gradient(135deg,#16a34a,#22c55e);color:#fff}
-@media(max-width:560px){
-    .studio-crop-modal{padding:8px}
-    .studio-crop-card{width:100%;border-radius:16px}
-    .studio-crop-body{padding:10px}
-    .studio-crop-head{padding:13px}
-    .studio-crop-head h3{font-size:15px}
-    .studio-crop-actions{padding:12px}
-}
+    <input
+      id="fileInput"
+      type="file"
+      multiple
+      accept="image/*,.pdf"
+    >
 
+    <div class="file-count" id="fileCount">
+      কোনো ফাইল নির্বাচন করা হয়নি
+    </div>
 
+  </div>
 
-/* =========================================================
-   ADVANCED PHOTO MAKER
-   Custom inch / cm / mm crop + 4x6 / A4 sheet generator
-========================================================= */
-.advanced-photo-tool{
-    margin:16px 0 18px;
-    padding:18px;
-    border-radius:20px;
-    background:
-        radial-gradient(circle at 12% 12%,rgba(37,99,235,.08),transparent 30%),
-        linear-gradient(145deg,#ffffff,#f8fbff);
-    border:1px solid #d8e5f5;
-    box-shadow:0 12px 30px rgba(25,55,90,.08);
-}
-.advanced-photo-head{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:12px;
-    margin-bottom:14px;
-}
-.advanced-photo-title-wrap{
-    display:flex;
-    align-items:center;
-    gap:11px;
-}
-.advanced-photo-icon{
-    width:46px;
-    height:46px;
-    display:grid;
-    place-items:center;
-    border-radius:13px;
-    color:#fff;
-    font-size:22px;
-    background:linear-gradient(135deg,#0f766e,#2563eb);
-    box-shadow:0 9px 20px rgba(37,99,235,.18);
-}
-.advanced-photo-title{
-    margin:0;
-    color:#123052;
-    font-size:21px;
-    font-weight:900;
-}
-.advanced-photo-sub{
-    margin:3px 0 0;
-    color:#64748b;
-    font-size:10.5px;
-    font-weight:700;
-}
-.advanced-photo-badge{
-    padding:8px 11px;
-    border-radius:999px;
-    color:#0f766e;
-    background:#ecfeff;
-    border:1px solid #bae6fd;
-    font-size:10px;
-    font-weight:900;
-}
-.advanced-photo-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:14px;
-}
-.advanced-photo-upload{
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    min-height:190px;
-    padding:18px;
-    border-radius:16px;
-    border:2px dashed #9fb6d8;
-    background:#f8fbff;
-    text-align:center;
-    cursor:pointer;
-}
-.advanced-photo-upload:hover,
-.advanced-photo-upload.dragover{
-    border-color:#2563eb;
-    background:#f3f7ff;
-}
-.advanced-photo-upload strong{
-    margin-top:7px;
-    color:#1e293b;
-    font-size:15px;
-    font-weight:900;
-}
-.advanced-photo-upload small{
-    margin-top:5px;
-    color:#64748b;
-    font-size:10px;
-    line-height:1.5;
-}
-.advanced-photo-upload-icon{font-size:34px}
-#advancedPhotoInput{display:none}
+  <!-- Tools -->
+  <div class="tools">
 
-.advanced-photo-preview-wrap{
-    min-height:190px;
-    padding:14px;
-    border-radius:16px;
-    background:#0f172a;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    overflow:hidden;
-}
-#advancedPhotoPreview{
-    max-width:100%;
-    max-height:230px;
-    border-radius:10px;
-    display:none;
-}
-.advanced-photo-empty{
-    color:#cbd5e1;
-    text-align:center;
-    font-size:11px;
-    line-height:1.6;
-}
-.advanced-photo-status{
-    margin-top:12px;
-    padding:9px 11px;
-    border-radius:11px;
-    color:#475569;
-    background:#f8fafc;
-    border:1px solid #e2e8f0;
-    font-size:10px;
-    font-weight:700;
-}
-.advanced-photo-status.success{
-    color:#166534;
-    background:#f0fdf4;
-    border-color:#bbf7d0;
-}
-.advanced-photo-status.error{
-    color:#991b1b;
-    background:#fef2f2;
-    border-color:#fecaca;
-}
-.advanced-sheet-controls{
-    display:grid;
-    grid-template-columns:repeat(2,minmax(0,1fr));
-    gap:12px;
-    margin-top:14px;
-}
-.advanced-sheet-card{
-    padding:14px;
-    border-radius:15px;
-    background:#fff;
-    border:1px solid #e2e8f0;
-    box-shadow:0 8px 20px rgba(15,23,42,.05);
-}
-.advanced-sheet-card h4{
-    margin:0 0 9px;
-    color:#1e3a5f;
-    font-size:13px;
-    font-weight:900;
-}
-.advanced-sheet-row{
-    display:grid;
-    grid-template-columns:1fr auto;
-    gap:8px;
-    align-items:end;
-}
-.advanced-sheet-field label{
-    display:block;
-    margin-bottom:5px;
-    color:#64748b;
-    font-size:9.5px;
-    font-weight:800;
-}
-.advanced-sheet-field input{
-    width:100%;
-    height:40px;
-    border:1px solid #dbe3ee;
-    border-radius:10px;
-    padding:0 10px;
-    outline:0;
-    color:#1e293b;
-    background:#fff;
-    font-size:12px;
-    font-weight:800;
-}
-.advanced-sheet-field input:focus{
-    border-color:#3b82f6;
-    box-shadow:0 0 0 3px rgba(59,130,246,.10);
-}
-.advanced-sheet-max{
-    margin-top:6px;
-    color:#64748b;
-    font-size:9.5px;
-    line-height:1.45;
-    font-weight:700;
-}
-.advanced-sheet-btn{
-    border:0;
-    cursor:pointer;
-    min-width:125px;
-    height:40px;
-    padding:0 12px;
-    border-radius:10px;
-    color:#fff;
-    font-size:10px;
-    font-weight:900;
-    background:linear-gradient(135deg,#2563eb,#7c3aed);
-}
-.advanced-sheet-card:nth-child(2) .advanced-sheet-btn{
-    background:linear-gradient(135deg,#0f766e,#14b8a6);
-}
-.advanced-sheet-btn:disabled{
-    opacity:.45;
-    cursor:not-allowed;
-}
-.advanced-photo-help{
-    margin-top:12px;
-    color:#64748b;
-    font-size:9.5px;
-    line-height:1.6;
-}
+    <div class="tool" onclick="openPanel('photoPDF')">
+      <div class="icon">📷</div>
+      <h3>Photo → PDF</h3>
+      <p>ছবি থেকে PDF তৈরি</p>
+    </div>
 
-/* Compact center crop dialog */
-.advanced-crop-modal{
-    position:fixed;
-    inset:0;
-    z-index:100002;
-    display:none;
-    align-items:center;
-    justify-content:center;
-    padding:16px;
-    background:rgba(2,6,23,.70);
-    backdrop-filter:blur(5px);
-}
-.advanced-crop-modal.open{display:flex}
-.advanced-crop-card{
-    width:min(780px,94vw);
-    max-height:92vh;
-    overflow:auto;
-    border-radius:20px;
-    background:#fff;
-    box-shadow:0 28px 80px rgba(0,0,0,.30);
-}
-.advanced-crop-head{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:12px;
-    padding:15px 17px;
-    border-bottom:1px solid #e5e7eb;
-}
-.advanced-crop-head h3{
-    margin:0;
-    color:#16324f;
-    font-size:18px;
-    font-weight:900;
-}
-.advanced-crop-close{
-    width:36px;
-    height:36px;
-    border:0;
-    border-radius:10px;
-    cursor:pointer;
-    color:#334155;
-    background:#f1f5f9;
-    font-size:20px;
-    font-weight:900;
-}
-.advanced-crop-body{padding:14px}
-.advanced-size-controls{
-    display:grid;
-    grid-template-columns:150px 1fr 1fr;
-    gap:10px;
-    margin-bottom:12px;
-}
-.advanced-size-field label{
-    display:block;
-    margin-bottom:5px;
-    color:#475569;
-    font-size:10px;
-    font-weight:900;
-}
-.advanced-size-field select,
-.advanced-size-field input{
-    width:100%;
-    height:42px;
-    border:1px solid #d8e1ec;
-    border-radius:10px;
-    padding:0 10px;
-    outline:0;
-    background:#fff;
-    color:#1e293b;
-    font-size:12px;
-    font-weight:800;
-}
-.advanced-crop-stage{
-    position:relative;
-    width:min(620px,100%);
-    margin:auto;
-    overflow:hidden;
-    border-radius:14px;
-    background:#0f172a;
-    touch-action:none;
-    user-select:none;
-}
-#advancedCropCanvas{
-    width:100%;
-    height:auto;
-    display:block;
-}
-.advanced-crop-box{
-    position:absolute;
-    border:2px solid #22c55e;
-    box-shadow:0 0 0 9999px rgba(0,0,0,.50),0 0 0 1px rgba(255,255,255,.9) inset;
-    cursor:move;
-    touch-action:none;
-}
-.advanced-crop-handle{
-    position:absolute;
-    width:18px;
-    height:18px;
-    border-radius:50%;
-    background:#fff;
-    border:3px solid #22c55e;
-    box-shadow:0 2px 8px rgba(0,0,0,.25);
-}
-.advanced-crop-handle.tl{left:-10px;top:-10px;cursor:nwse-resize}
-.advanced-crop-handle.tr{right:-10px;top:-10px;cursor:nesw-resize}
-.advanced-crop-handle.bl{left:-10px;bottom:-10px;cursor:nesw-resize}
-.advanced-crop-handle.br{right:-10px;bottom:-10px;cursor:nwse-resize}
-.advanced-crop-note{
-    margin-top:10px;
-    padding:9px 11px;
-    border-radius:10px;
-    color:#475569;
-    background:#f8fafc;
-    border:1px solid #e2e8f0;
-    font-size:10px;
-    line-height:1.55;
-    font-weight:700;
-}
-.advanced-crop-actions{
-    display:flex;
-    justify-content:flex-end;
-    gap:9px;
-    padding:13px 16px 16px;
-    border-top:1px solid #eef2f7;
-}
-.advanced-crop-btn{
-    border:0;
-    cursor:pointer;
-    padding:11px 15px;
-    border-radius:11px;
-    font-size:10.5px;
-    font-weight:900;
-}
-.advanced-crop-cancel{background:#e2e8f0;color:#334155}
-.advanced-crop-apply{background:linear-gradient(135deg,#16a34a,#22c55e);color:#fff}
+    <div class="tool" onclick="openPanel('merge')">
+      <div class="icon">🔗</div>
+      <h3>Merge PDF</h3>
+      <p>একাধিক PDF এক করুন</p>
+    </div>
 
-@media(max-width:800px){
-    .advanced-photo-grid,
-    .advanced-sheet-controls{
-        grid-template-columns:1fr;
-    }
-}
-@media(max-width:560px){
-    .advanced-photo-tool{padding:13px;border-radius:16px}
-    .advanced-photo-head{align-items:flex-start}
-    .advanced-photo-badge{font-size:8px}
-    .advanced-photo-title{font-size:18px}
-    .advanced-size-controls{grid-template-columns:1fr}
-    .advanced-crop-modal{padding:7px}
-    .advanced-crop-card{width:100%;border-radius:15px}
-    .advanced-sheet-row{grid-template-columns:1fr}
-    .advanced-sheet-btn{width:100%}
-}
+    <div class="tool" onclick="openPanel('compress')">
+      <div class="icon">🗜️</div>
+      <h3>Compress PDF</h3>
+      <p>PDF-এর Size কমান</p>
+    </div>
 
-</style>
+    <div class="tool" onclick="openPanel('pdfImage')">
+      <div class="icon">🖼️</div>
+      <h3>PDF → Image</h3>
+      <p>PDF থেকে ছবি</p>
+    </div>
 
-<section class="tools-page">
-    <div class="tools-page-wrap">
+    <div class="tool" onclick="openPanel('rotate')">
+      <div class="icon">🔄</div>
+      <h3>Rotate PDF</h3>
+      <p>PDF Page Rotate</p>
+    </div>
 
-    
+    <div class="tool" onclick="openPanel('split')">
+      <div class="icon">✂️</div>
+      <h3>Split PDF</h3>
+      <p>Page আলাদা করুন</p>
+    </div>
 
-        <div class="tools-page-head">
-            <h1>Helping Online Tools</h1>
-            <p>Image resize, compress, convert, PDF, photo, signature, DPI and other daily-use tools in one place.</p>
-        </div>
+    <div class="tool" onclick="openPanel('size')">
+      <div class="icon">📐</div>
+      <h3>Page Size</h3>
+      <p>A4 / A5 / Letter</p>
+    </div>
 
-        <div class="studio-tool" id="studioTool">
-            <div class="studio-head">
-                <div class="studio-title-wrap"><div class="studio-icon">📸</div><div><h2 class="studio-title">Studio Tool</h2><p class="studio-sub">Passport Photo Sheet Maker</p></div></div>
-                <div class="studio-size-badge">1.1 × 1.35 inch @ 300 DPI</div>
-            </div>
-            <div class="studio-body">
-                <label class="studio-upload" id="studioDropZone"><span class="studio-upload-icon">🖼️</span><strong>Upload Passport Size Photo</strong><small>JPG / PNG / WebP • যেকোনো pixel size</small><input type="file" id="studioPhotoInput" accept="image/jpeg,image/png,image/webp,.jpg,.jpeg,.png,.webp"></label>
-                <div class="studio-preview-wrap"><div class="studio-preview-empty" id="studioPreviewEmpty">Photo upload করলে এখানে preview দেখা যাবে।</div><img id="studioPreview" alt="Studio photo preview"></div>
-            </div>
-            <div class="studio-status" id="studioStatus">প্রথমে একটি passport size photo upload করুন।</div>
-            <div class="studio-downloads">
-                <button type="button" class="studio-download-btn" id="studioDownload3" disabled="">
-                    3 Photos<br>4 × 6 Page
-                </button>
+    <div class="tool" onclick="openPanel('download')">
+      <div class="icon">⬇️</div>
+      <h3>Download</h3>
+      <p>PDF Download করুন</p>
+    </div>
 
-                <button type="button" class="studio-download-btn" id="studioDownload6" disabled="">
-                    6 Photos<br>4 × 6 Page
-                </button>
+  </div>
 
-                <button type="button" class="studio-download-btn" id="studioDownload12" disabled="">
-                    12 Photos<br>4 × 6 Page
-                </button>
+  <!-- Photo PDF -->
+  <div class="panel" id="photoPDF">
 
-                <button type="button" class="studio-download-btn" id="studioDownload15" disabled="">
-                    15 Photos<br>6 × 4 Landscape
-                </button>
+    <h2>📷 Photo → PDF</h2>
 
-                <button type="button" class="studio-download-btn" id="studioDownloadA4Max" disabled="">
-                    A4 Max Photos<br>56 Photos
-                </button>
+    <div class="row">
 
-                <button type="button" class="studio-download-btn" id="studioDownloadA47" disabled="">
-                    A4 Top Row<br>7 Photos
-                </button>
+      <label>Page Size</label>
 
-                <button type="button" class="studio-download-btn" id="studioDownloadA414" disabled="">
-                    A4 Top 2 Rows<br>14 Photos
-                </button>
+      <select id="pageSize">
+        <option value="A4">A4</option>
+        <option value="A5">A5</option>
+        <option value="LETTER">Letter</option>
+      </select>
+
+      <label>Margin</label>
+
+      <input
+        id="margin"
+        type="number"
+        value="20"
+        min="0"
+        max="100"
+      >
+
+      <button class="primary" onclick="createPDF()">
+        Create PDF
+      </button>
+
+    </div>
+
+    <div class="preview" id="imagePreview"></div>
+
+  </div>
+
+  <!-- Merge -->
+  <div class="panel" id="merge">
+
+    <h2>🔗 Merge PDF</h2>
+
+    <p>
+      একাধিক PDF নির্বাচন করে একসাথে একটি PDF তৈরি করুন।
+    </p>
+
+    <br>
+
+    <button class="primary" onclick="mergePDF()">
+      🔗 Merge & Download
+    </button>
+
+  </div>
+
+  <!-- Compress -->
+  <div class="panel" id="compress">
+
+    <h2>🗜️ PDF Size Control</h2>
+
+    <div class="row">
+
+      <label>Quality:</label>
+
+      <select id="quality">
+        <option value="0.9">High Quality</option>
+        <option value="0.75" selected>Good Quality</option>
+        <option value="0.6">Medium</option>
+        <option value="0.4">Small Size</option>
+      </select>
+
+      <label>Target Size:</label>
+
+      <select id="targetSize">
+        <option value="0">Automatic</option>
+        <option value="100">100 KB</option>
+        <option value="200">200 KB</option>
+        <option value="500">500 KB</option>
+        <option value="1000">1 MB</option>
+      </select>
+
+      <button class="primary" onclick="compressPDF()">
+        🗜️ Compress
+      </button>
+
+    </div>
+
+    <div class="progress">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <div class="status" id="compressStatus"></div>
+
+  </div>
+
+  <!-- PDF Image -->
+  <div class="panel" id="pdfImage">
+
+    <h2>🖼️ PDF → Image</h2>
+
+    <div class="row">
+
+      <select id="imageFormat">
+        <option value="png">PNG</option>
+        <option value="jpeg">JPG</option>
+      </select>
+
+      <button class="primary" onclick="pdfToImage()">
+        Convert
+      </button>
+
+    </div>
+
+  </div>
+
+  <!-- Rotate -->
+  <div class="panel" id="rotate">
+
+    <h2>🔄 Rotate PDF</h2>
+
+    <div class="row">
+
+      <select id="rotateDegree">
+        <option value="90">90°</option>
+        <option value="180">180°</option>
+        <option value="270">270°</option>
+      </select>
+
+      <button class="primary" onclick="rotatePDF()">
+        Rotate & Download
+      </button>
+
+    </div>
+
+  </div>
+
+  <!-- Split -->
+  <div class="panel" id="split">
+
+    <h2>✂️ Split PDF</h2>
+
+    <div class="row">
+
+      <input
+        type="text"
+        id="pageRange"
+        placeholder="Example: 1-3"
+      >
+
+      <button class="primary" onclick="splitPDF()">
+        Split & Download
+      </button>
+
+    </div>
+
+  </div>
+
+  <!-- Size -->
+  <div class="panel" id="size">
+
+    <h2>📐 PDF Page Size</h2>
+
+    <p>
+      Photo → PDF তৈরি করার সময় A4/A5/Letter নির্বাচন করুন।
+    </p>
+
+  </div>
+
+  <!-- Download -->
+  <div class="panel" id="download">
+
+    <h2>⬇️ Download</h2>
+
+    <p>
+      PDF তৈরি হলে এখানে Download করা যাবে।
+    </p>
+
+    <br>
+
+    <button
+      class="primary"
+      id="downloadBtn"
+      style="display:none"
+    >
+      ⬇️ Download PDF
+    </button>
+
+  </div>
+
 </div>
-            <div class="studio-help">
-                3 Photo: 4×6 page-এর একদম উপরের দিকে পাশাপাশি 3টি photo, নিচের অংশ খালি থাকবে।
-                6 Photo: উপরে 3 + তার নিচে 3।
-                12 Photo: 3 × 4 grid।
-                15 Photo: 6×4 landscape page-এ compact 5 + 5 + 5 layout, photo size সামান্য ছোট থাকবে যাতে white space কম হয় এবং cutting সুবিধাজনক হয়।
-                A4 Max Photos: 7 × 8 = 56টি photo, safe print margin + extra cutting gap সহ।
-                A4 Top Row: page-এর উপরের দিকে 7টি photo, নিচের অংশ সাদা থাকবে।
-                A4 Top 2 Rows: উপরে 7 + নিচে 7 = মোট 14টি photo, page-এর নিচের অংশ সাদা থাকবে।
-            </div>
-        </div>
+
+<footer class="footer">
+  © 2026 JANA ONLINE SERVICE<br>
+  Professional Digital Service Platform
+</footer>
 
 
-        <div class="advanced-photo-tool" id="advancedPhotoTool">
-            <div class="advanced-photo-head">
-                <div class="advanced-photo-title-wrap">
-                    <div class="advanced-photo-icon">✨</div>
-                    <div>
-                        <h2 class="advanced-photo-title">Advanced Photo Maker</h2>
-                        <p class="advanced-photo-sub">Custom Size Crop • 4×6 &amp; A4 Photo Sheet</p>
-                    </div>
-                </div>
-                <div class="advanced-photo-badge">Inch • CM • MM</div>
-            </div>
+<!-- Libraries -->
 
-            <div class="advanced-photo-grid">
-                <label class="advanced-photo-upload" id="advancedPhotoDrop">
-                    <span class="advanced-photo-upload-icon">🖼️</span>
-                    <strong>Upload Photo</strong>
-                    <small>JPG / PNG / WebP • Upload করার পর custom crop window খুলবে</small>
-                    <input type="file" id="advancedPhotoInput" accept="image/jpeg,image/png,image/webp,.jpg,.jpeg,.png,.webp">
-                </label>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
-                <div class="advanced-photo-preview-wrap">
-                    <div class="advanced-photo-empty" id="advancedPhotoEmpty">
-                        Crop complete হলে final photo এখানে preview হবে।
-                    </div>
-                    <img id="advancedPhotoPreview" alt="Advanced cropped photo preview">
-                </div>
-            </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
 
-            <div class="advanced-photo-status" id="advancedPhotoStatus">
-                প্রথমে একটি photo upload করুন। তারপর Inch / CM / MM এবং Width × Height দিয়ে crop করুন।
-            </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.4.168/pdf.min.mjs"
+        type="module"></script>
 
-            <div class="advanced-sheet-controls">
-                <div class="advanced-sheet-card">
-                    <h4>4 × 6 Page Output</h4>
-                    <div class="advanced-sheet-row">
-                        <div class="advanced-sheet-field">
-                            <label>How many photos?</label>
-                            <input type="number" id="advancedCount4x6" min="1" value="1" disabled="">
-                        </div>
-                        <button type="button" class="advanced-sheet-btn" id="advancedDownload4x6" disabled="">
-                            Download 4×6
-                        </button>
-                    </div>
-                    <div class="advanced-sheet-max" id="advancedMax4x6">
-                        Crop complete হলে maximum photo count দেখাবে।
-                    </div>
-                </div>
-
-                <div class="advanced-sheet-card">
-                    <h4>A4 Page Output</h4>
-                    <div class="advanced-sheet-row">
-                        <div class="advanced-sheet-field">
-                            <label>How many photos?</label>
-                            <input type="number" id="advancedCountA4" min="1" value="1" disabled="">
-                        </div>
-                        <button type="button" class="advanced-sheet-btn" id="advancedDownloadA4" disabled="">
-                            Download A4
-                        </button>
-                    </div>
-                    <div class="advanced-sheet-max" id="advancedMaxA4">
-                        Crop complete হলে maximum photo count দেখাবে।
-                    </div>
-                </div>
-            </div>
-
-            <div class="advanced-photo-help">
-                কম photo count দিলে layout সবসময় page-এর <b>উপরের দিক থেকে</b> শুরু হবে—মাঝখানে center হবে না।
-                প্রতিটি generated photo-র চারদিকে <b>2px black cutting border</b> থাকবে।
-            </div>
-        </div>
-
-        <div class="advanced-crop-modal" id="advancedCropModal" aria-hidden="true">
-            <div class="advanced-crop-card" role="dialog" aria-modal="true" aria-labelledby="advancedCropTitle">
-                <div class="advanced-crop-head">
-                    <h3 id="advancedCropTitle">Advanced Photo Crop</h3>
-                    <button type="button" class="advanced-crop-close" id="advancedCropClose" aria-label="Close">×</button>
-                </div>
-
-                <div class="advanced-crop-body">
-                    <div class="advanced-size-controls">
-                        <div class="advanced-size-field">
-                            <label>Unit</label>
-                            <select id="advancedUnit">
-                                <option value="inch">Inch</option>
-                                <option value="cm">Centimeter</option>
-                                <option value="mm">Millimeter</option>
-                            </select>
-                        </div>
-
-                        <div class="advanced-size-field">
-                            <label>Width</label>
-                            <input type="number" id="advancedWidth" min="0.1" step="0.01" value="1.1">
-                        </div>
-
-                        <div class="advanced-size-field">
-                            <label>Height</label>
-                            <input type="number" id="advancedHeight" min="0.1" step="0.01" value="1.35">
-                        </div>
-                    </div>
-
-                    <div class="advanced-crop-stage" id="advancedCropStage">
-                        <canvas id="advancedCropCanvas"></canvas>
-                        <div class="advanced-crop-box" id="advancedCropBox">
-                            <span class="advanced-crop-handle tl" data-handle="tl"></span>
-                            <span class="advanced-crop-handle tr" data-handle="tr"></span>
-                            <span class="advanced-crop-handle bl" data-handle="bl"></span>
-                            <span class="advanced-crop-handle br" data-handle="br"></span>
-                        </div>
-                    </div>
-
-                    <div class="advanced-crop-note">
-                        Unit, Width ও Height পরিবর্তন করলেই crop ratio update হবে।
-                        সবুজ crop box move করুন বা corner drag করে adjust করুন।
-                    </div>
-                </div>
-
-                <div class="advanced-crop-actions">
-                    <button type="button" class="advanced-crop-btn advanced-crop-cancel" id="advancedCropCancel">Cancel</button>
-                    <button type="button" class="advanced-crop-btn advanced-crop-apply" id="advancedCropApply">Crop &amp; Use Photo</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="studio-crop-modal" id="studioCropModal" aria-hidden="true">
-            <div class="studio-crop-card" role="dialog" aria-modal="true" aria-labelledby="studioCropTitle">
-                <div class="studio-crop-head">
-                    <div>
-                        <h3 id="studioCropTitle">Crop Passport Photo</h3>
-                        <small>Fixed aspect ratio: 1.1 × 1.35 inch</small>
-                    </div>
-                    <button type="button" class="studio-crop-close" id="studioCropClose" aria-label="Close">×</button>
-                </div>
-
-                <div class="studio-crop-body">
-                    <div class="studio-crop-stage" id="studioCropStage">
-                        <canvas id="studioCropCanvas"></canvas>
-                        <div class="studio-crop-box" id="studioCropBox">
-                            <span class="studio-crop-handle tl" data-handle="tl"></span>
-                            <span class="studio-crop-handle tr" data-handle="tr"></span>
-                            <span class="studio-crop-handle bl" data-handle="bl"></span>
-                            <span class="studio-crop-handle br" data-handle="br"></span>
-                        </div>
-                    </div>
-                    <div class="studio-crop-note">
-                        Photo upload করার পর সবুজ crop box-টি move করুন বা corner drag করে size adjust করুন।
-                        Aspect ratio সবসময় 1.1 × 1.35 থাকবে। তারপর <b>Crop &amp; Use Photo</b> চাপুন।
-                    </div>
-                </div>
-
-                <div class="studio-crop-actions">
-                    <button type="button" class="studio-crop-btn studio-crop-cancel" id="studioCropCancel">Cancel</button>
-                    <button type="button" class="studio-crop-btn studio-crop-ok" id="studioCropApply">Crop &amp; Use Photo</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="tools-search">
-            <span>🔎</span>
-            <input type="search" id="toolSearch" placeholder="Search a tool...">
-        </div>
-
-        <div class="tools-grid" id="toolsGrid">
-                            <a class="tool-card" data-search="Crop Image 35×45mm / 3.5×4.5cm / 2×2 inch" href="https://suman9907bit.github.io/jos-masic-print-Photo-marker/">
-
-                    <div class="tool-icon">🪪</div>
-
-                    <div class="tool-info">
-                        <strong>Passport Photo Maker</strong>
-                        <small>35×45mm / 3.5×4.5cm / 2×2 inch</small>
-                    </div>
-                </a>
-                            <a class="tool-card" data-search="reduce image size in kb compress to target kb" href="https://suman9907bit.github.io/jos-masic-print-Joint-Photo/">
-
-                    <div class="tool-icon">🗜️</div>
-
-                    <div class="tool-info">
-                        <strong>Join Multiple Images</strong>
-                        <small>Compress to target KB</small>
-                    </div>
-                </a>
-                            <a class="tool-card" data-search="resize image pixel set width × height" href="https://suman9907bit.github.io/jos-masic-print-Black-and-white/">
-
-                    <div class="tool-icon"> BWP</div>
-
-                    <div class="tool-info">
-                        <strong>Black And White Photo</strong>
-                        <small>Set width × height</small>
-                    </div>
-                </a>
-                            <a class="tool-card" data-search="resize signature 6×2cm or custom size" href="https://suman9907bit.github.io/jos-masic-print-Image-to-PDF/">
-
-                    <div class="tool-icon">✍️</div>
-
-                    <div class="tool-info">
-                        <strong>Image to PDF</strong>
-                        <small>Create a simple PDF from one image.</small>
-                    </div>
-                </a>
-                            <a class="tool-card" data-search="increase image size in kb increase file size to target kb" href="https://suman9907bit.github.io/jos-masic-print-Social-Media/">
-
-                    <div class="tool-icon">📈</div>
-
-                    <div class="tool-info">
-                        <strong>Social Media Resize</strong>
-                        <small>Resize for social platforms.</small>
-                    </div>
-                </a>
-                            <a class="tool-card" data-search="image converter jpg / png / webp" href="https://openconceptbangla.in/tools/tool.php?t=convert">
-
-                    <div class="tool-icon">🔄</div>
-
-                    <div class="tool-info">
-                        <strong>Image Converter</strong>
-                        <small>JPG / PNG / WebP</small>
-                    </div>
-                </a>
-                            <a class="tool-card" data-search="crop image free visual crop" href="https://suman9907bit.github.io/jos-masic-print-Crop-Image/">
-
-                    <div class="tool-icon">✂️</div>
-
-                    <div class="tool-info">
-                        <strong>Crop Image</strong>
-                        <small>Free visual crop</small>
-                    </div>
-                </a>
-                            <a class="tool-card" data-search="rotate image 90° / 180° / 270°" href="https://openconceptbangla.in/tools/tool.php?t=rotate">
-
-                    <div class="tool-icon">↻</div>
-
-                    <div class="tool-info">
-                        <strong>Rotate Image</strong>
-                        <small>90° / 180° / 270°</small>
-                    </div>
-                </a>
-
-</section>
 
 <script>
-(function(){
-'use strict';
-const DPI=300, PHOTO_W=330, PHOTO_H=405, P4W=1200, P4H=1800, P6W=1800, P6H=1200, A4W=2480, A4H=3508;
-const input=document.getElementById('studioPhotoInput'),drop=document.getElementById('studioDropZone'),preview=document.getElementById('studioPreview'),empty=document.getElementById('studioPreviewEmpty'),status=document.getElementById('studioStatus');
-const buttons=[document.getElementById('studioDownload3'),document.getElementById('studioDownload6'),document.getElementById('studioDownload12'),document.getElementById('studioDownload15'),document.getElementById('studioDownloadA4Max'),document.getElementById('studioDownloadA47'),document.getElementById('studioDownloadA414')];
 
-const cropModal=document.getElementById('studioCropModal');
-const cropStage=document.getElementById('studioCropStage');
-const cropCanvas=document.getElementById('studioCropCanvas');
-const cropBox=document.getElementById('studioCropBox');
-const cropClose=document.getElementById('studioCropClose');
-const cropCancel=document.getElementById('studioCropCancel');
-const cropApply=document.getElementById('studioCropApply');
+let selectedFiles = [];
+let generatedPDF = null;
 
-if(!input||!drop)return;
-let img=null,previewUrl=null;
-let sourceImg=null,sourceUrl=null;
-let cropRect={x:0,y:0,w:0,h:0};
-const CROP_RATIO=PHOTO_W/PHOTO_H;
+const fileInput =
+document.getElementById("fileInput");
 
-function msg(t,c){status.textContent=t;status.classList.remove('success','error');if(c)status.classList.add(c)}
-function enable(v){buttons.forEach(b=>b.disabled=!v)}
-function canvas(w,h){const c=document.createElement('canvas');c.width=w;c.height=h;const x=c.getContext('2d',{alpha:false});x.fillStyle='#fff';x.fillRect(0,0,w,h);x.imageSmoothingEnabled=true;x.imageSmoothingQuality='high';return c}
+fileInput.addEventListener("change",function(){
 
-async function validateLocalImageFile(f,maxBytes,errorFn){
-    if(!f){ errorFn('কোনো file select করা হয়নি।'); return false; }
+  selectedFiles =
+  Array.from(this.files);
 
-    const name=(f.name||'').toLowerCase();
-    if(!/\.(jpe?g|png|webp)$/.test(name)){
-        errorFn('শুধু JPG, JPEG, PNG বা WebP photo ব্যবহার করুন।');
-        return false;
-    }
+  document.getElementById("fileCount").innerText =
+  selectedFiles.length +
+  "টি ফাইল নির্বাচন করা হয়েছে";
 
-    if(!/^image\/(jpeg|png|webp)$/i.test(f.type)){
-        errorFn('Invalid image file type.');
-        return false;
-    }
+  showPreview();
 
-    if(f.size<=0 || f.size>maxBytes){
-        errorFn('Photo file size limit-এর মধ্যে হতে হবে।');
-        return false;
-    }
-
-    /* Real file-signature check: blocks renamed PHP/TXT/HTML files */
-    let bytes;
-    try{
-        bytes=new Uint8Array(await f.slice(0,16).arrayBuffer());
-    }catch(_){
-        errorFn('File read করা যায়নি।');
-        return false;
-    }
-
-    const isJpeg=bytes.length>=3 && bytes[0]===0xFF && bytes[1]===0xD8 && bytes[2]===0xFF;
-    const isPng=bytes.length>=8 &&
-        bytes[0]===0x89 && bytes[1]===0x50 && bytes[2]===0x4E && bytes[3]===0x47 &&
-        bytes[4]===0x0D && bytes[5]===0x0A && bytes[6]===0x1A && bytes[7]===0x0A;
-    const isWebp=bytes.length>=12 &&
-        bytes[0]===0x52 && bytes[1]===0x49 && bytes[2]===0x46 && bytes[3]===0x46 &&
-        bytes[8]===0x57 && bytes[9]===0x45 && bytes[10]===0x42 && bytes[11]===0x50;
-
-    if(!(isJpeg||isPng||isWebp)){
-        errorFn('এটি valid JPG/PNG/WebP image নয়।');
-        return false;
-    }
-
-    return true;
-}
-
-function validateDecodedImageDimensions(im,errorFn){
-    const w=Number(im.naturalWidth||0);
-    const h=Number(im.naturalHeight||0);
-
-    if(!w||!h){
-        errorFn('Image dimensions invalid.');
-        return false;
-    }
-
-    /* Prevent browser memory exhaustion / decompression-bomb style images */
-    const MAX_SIDE=20000;
-    const MAX_PIXELS=80000000; // 80 MP
-    if(w>MAX_SIDE || h>MAX_SIDE || (w*h)>MAX_PIXELS){
-        errorFn('Image resolution খুব বড়। Maximum 80 megapixel-এর মধ্যে photo ব্যবহার করুন।');
-        return false;
-    }
-
-    return true;
-}
-
-function openCropModal(){
-    cropModal.classList.add('open');
-    cropModal.setAttribute('aria-hidden','false');
-    document.body.style.overflow='hidden';
-}
-function closeCropModal(){
-    cropModal.classList.remove('open');
-    cropModal.setAttribute('aria-hidden','true');
-    document.body.style.overflow='';
-}
-function stageSize(){
-    const r=cropStage.getBoundingClientRect();
-    return {w:r.width,h:r.height};
-}
-function syncCropBox(){
-    cropBox.style.left=cropRect.x+'px';
-    cropBox.style.top=cropRect.y+'px';
-    cropBox.style.width=cropRect.w+'px';
-    cropBox.style.height=cropRect.h+'px';
-    cropBox.style.setProperty('--crop-w',cropRect.w+'px');
-    cropBox.style.setProperty('--crop-h',cropRect.h+'px');
-}
-function initCropBox(){
-    const s=stageSize();
-    let h=Math.min(s.h*0.78,s.w/CROP_RATIO*0.78);
-    let w=h*CROP_RATIO;
-    if(w>s.w*0.78){w=s.w*0.78;h=w/CROP_RATIO}
-    cropRect={
-        x:(s.w-w)/2,
-        y:(s.h-h)/2,
-        w:w,
-        h:h
-    };
-    syncCropBox();
-}
-function renderSourceForCrop(){
-    const maxW=1800;
-    const scale=Math.min(1,maxW/sourceImg.naturalWidth);
-    cropCanvas.width=Math.round(sourceImg.naturalWidth*scale);
-    cropCanvas.height=Math.round(sourceImg.naturalHeight*scale);
-    const x=cropCanvas.getContext('2d',{alpha:false});
-    x.fillStyle='#fff';
-    x.fillRect(0,0,cropCanvas.width,cropCanvas.height);
-    x.imageSmoothingEnabled=true;
-    x.imageSmoothingQuality='high';
-    x.drawImage(sourceImg,0,0,cropCanvas.width,cropCanvas.height);
-    requestAnimationFrame(()=>requestAnimationFrame(initCropBox));
-}
-function clampCrop(){
-    const s=stageSize();
-    cropRect.w=Math.max(60,Math.min(cropRect.w,s.w));
-    cropRect.h=cropRect.w/CROP_RATIO;
-    if(cropRect.h>s.h){
-        cropRect.h=s.h;
-        cropRect.w=cropRect.h*CROP_RATIO;
-    }
-    cropRect.x=Math.max(0,Math.min(cropRect.x,s.w-cropRect.w));
-    cropRect.y=Math.max(0,Math.min(cropRect.y,s.h-cropRect.h));
-    syncCropBox();
-}
-
-let dragMode=null,startX=0,startY=0,startRect=null,activeHandle=null;
-
-cropBox.addEventListener('pointerdown',function(e){
-    e.preventDefault();
-    const handle=e.target && e.target.dataset ? e.target.dataset.handle : null;
-    dragMode=handle?'resize':'move';
-    activeHandle=handle;
-    startX=e.clientX;
-    startY=e.clientY;
-    startRect={...cropRect};
-    cropBox.setPointerCapture(e.pointerId);
 });
 
-cropBox.addEventListener('pointermove',function(e){
-    if(!dragMode)return;
-    e.preventDefault();
-    const dx=e.clientX-startX;
-    const dy=e.clientY-startY;
 
-    if(dragMode==='move'){
-        cropRect.x=startRect.x+dx;
-        cropRect.y=startRect.y+dy;
-        clampCrop();
-        return;
+function openPanel(id){
+
+  document.querySelectorAll(".panel")
+  .forEach(p => p.classList.remove("active"));
+
+  document.getElementById(id)
+  .classList.add("active");
+
+  window.scrollTo({
+    top:document.getElementById(id).offsetTop-20,
+    behavior:"smooth"
+  });
+
+}
+
+
+function showPreview(){
+
+  const preview =
+  document.getElementById("imagePreview");
+
+  preview.innerHTML="";
+
+  selectedFiles.forEach(file=>{
+
+    if(file.type.startsWith("image/")){
+
+      const reader =
+      new FileReader();
+
+      reader.onload=function(e){
+
+        const div =
+        document.createElement("div");
+
+        div.className="preview-item";
+
+        div.innerHTML=`
+          <img src="${e.target.result}">
+          <small>${file.name}</small>
+        `;
+
+        preview.appendChild(div);
+
+      };
+
+      reader.readAsDataURL(file);
+
     }
 
-    const s=stageSize();
-    let anchorX,anchorY,newW;
+  });
 
-    if(activeHandle==='br'){
-        anchorX=startRect.x; anchorY=startRect.y;
-        newW=Math.max(60,startRect.w+dx);
-        cropRect.x=anchorX; cropRect.y=anchorY;
-    }else if(activeHandle==='tr'){
-        anchorX=startRect.x; anchorY=startRect.y+startRect.h;
-        newW=Math.max(60,startRect.w+dx);
-        cropRect.x=anchorX;
-        cropRect.y=anchorY-(newW/CROP_RATIO);
-    }else if(activeHandle==='bl'){
-        anchorX=startRect.x+startRect.w; anchorY=startRect.y;
-        newW=Math.max(60,startRect.w-dx);
-        cropRect.x=anchorX-newW;
-        cropRect.y=anchorY;
-    }else{
-        anchorX=startRect.x+startRect.w; anchorY=startRect.y+startRect.h;
-        newW=Math.max(60,startRect.w-dx);
-        cropRect.x=anchorX-newW;
-        cropRect.y=anchorY-(newW/CROP_RATIO);
-    }
-
-    cropRect.w=newW;
-    cropRect.h=newW/CROP_RATIO;
-
-    if(cropRect.x<0){cropRect.x=0}
-    if(cropRect.y<0){cropRect.y=0}
-    if(cropRect.x+cropRect.w>s.w){
-        cropRect.w=s.w-cropRect.x;
-        cropRect.h=cropRect.w/CROP_RATIO;
-    }
-    if(cropRect.y+cropRect.h>s.h){
-        cropRect.h=s.h-cropRect.y;
-        cropRect.w=cropRect.h*CROP_RATIO;
-    }
-    syncCropBox();
-});
-
-function endCropDrag(e){
-    if(!dragMode)return;
-    dragMode=null;
-    activeHandle=null;
-    try{cropBox.releasePointerCapture(e.pointerId)}catch(_){}
-}
-cropBox.addEventListener('pointerup',endCropDrag);
-cropBox.addEventListener('pointercancel',endCropDrag);
-
-cropClose.addEventListener('click',closeCropModal);
-cropCancel.addEventListener('click',closeCropModal);
-cropModal.addEventListener('click',function(e){if(e.target===cropModal)closeCropModal()});
-
-window.addEventListener('resize',function(){
-    if(cropModal.classList.contains('open'))requestAnimationFrame(initCropBox);
-});
-
-cropApply.addEventListener('click',function(){
-    if(!sourceImg)return;
-
-    const sr=stageSize();
-    const scaleX=cropCanvas.width/sr.w;
-    const scaleY=cropCanvas.height/sr.h;
-
-    const sx=Math.max(0,Math.round(cropRect.x*scaleX));
-    const sy=Math.max(0,Math.round(cropRect.y*scaleY));
-    const sw=Math.max(1,Math.round(cropRect.w*scaleX));
-    const sh=Math.max(1,Math.round(cropRect.h*scaleY));
-
-    const out=canvas(PHOTO_W,PHOTO_H);
-    const ox=out.getContext('2d');
-    ox.drawImage(cropCanvas,sx,sy,sw,sh,0,0,PHOTO_W,PHOTO_H);
-
-    const data=out.toDataURL('image/jpeg',0.98);
-    const cropped=new Image();
-
-    cropped.onload=function(){
-        img=cropped;
-        if(previewUrl)URL.revokeObjectURL(previewUrl);
-        previewUrl=data;
-        preview.src=data;
-        preview.style.display='block';
-        empty.style.display='none';
-        enable(true);
-        msg('Crop complete. Photo ready: 1.1 × 1.35 inch @ 300 DPI.','success');
-        closeCropModal();
-    };
-    cropped.src=data;
-});
-function draw(ctx,x,y,w,h,rot=false){const tw=rot?h:w,th=rot?w:h,sr=img.naturalWidth/img.naturalHeight,dr=tw/th;let sx=0,sy=0,sw=img.naturalWidth,sh=img.naturalHeight;if(sr>dr){sw=img.naturalHeight*dr;sx=(img.naturalWidth-sw)/2}else{sh=img.naturalWidth/dr;sy=(img.naturalHeight-sh)/2}if(!rot)ctx.drawImage(img,sx,sy,sw,sh,x,y,w,h);else{ctx.save();ctx.translate(x+w/2,y+h/2);ctx.rotate(Math.PI/2);ctx.drawImage(img,sx,sy,sw,sh,-h/2,-w/2,h,w);ctx.restore()}/* black cutting border around every generated photo */ctx.save();ctx.strokeStyle='#000000';ctx.lineWidth=2;ctx.strokeRect(x+1,y+1,Math.max(0,w-2),Math.max(0,h-2));ctx.restore()}
-
-function three(){
-const c=canvas(P4W,P4H),x=c.getContext('2d');
-const gap=32;
-const total=PHOTO_W*3+gap*2;
-const sx=Math.round((P4W-total)/2);
-const sy=60;
-for(let col=0;col<3;col++){
-    draw(x,sx+col*(PHOTO_W+gap),sy,PHOTO_W,PHOTO_H);
-}
-return c
-}
-function six(){const c=canvas(P4W,P4H),x=c.getContext('2d'),gx=32,gy=32,sx=Math.round((P4W-(PHOTO_W*3+gx*2))/2),sy=60;for(let r=0;r<2;r++)for(let col=0;col<3;col++)draw(x,sx+col*(PHOTO_W+gx),sy+r*(PHOTO_H+gy),PHOTO_W,PHOTO_H);return c}
-function twelve(){
-const c=canvas(P4W,P4H),x=c.getContext('2d');
-
-/* FINAL 12 PHOTO MAX-FILL LAYOUT
-   4×6 vertical page
-   3 columns × 4 rows
-   Photo ratio fixed at 1.1 : 1.35
-   Size is calculated to use the maximum safe printable area.
-*/
-const cols=3;
-const rows=4;
-
-const marginX=18;
-const marginY=22;
-const gapX=28;
-const gapY=28;
-
-const ratio=PHOTO_W/PHOTO_H;
-
-/* Maximum width allowed by 3 columns */
-const maxWByPage=(P4W-(marginX*2)-(gapX*(cols-1)))/cols;
-
-/* Maximum height allowed by 4 rows, converted back to width using photo ratio */
-const maxHByPage=(P4H-(marginY*2)-(gapY*(rows-1)))/rows;
-const maxWByHeight=maxHByPage*ratio;
-
-/* Pick the largest size that fits both width and height */
-const pw=Math.floor(Math.min(maxWByPage,maxWByHeight));
-const ph=Math.floor(pw/ratio);
-
-const totalW=(pw*cols)+(gapX*(cols-1));
-const totalH=(ph*rows)+(gapY*(rows-1));
-
-const sx=Math.round((P4W-totalW)/2);
-const sy=Math.round((P4H-totalH)/2);
-
-for(let row=0;row<rows;row++){
-    for(let col=0;col<cols;col++){
-        draw(
-            x,
-            sx+col*(pw+gapX),
-            sy+row*(ph+gapY),
-            pw,
-            ph
-        );
-    }
 }
 
-return c
-}
-function fifteen(){
-const c=canvas(P6W,P6H),x=c.getContext('2d');
 
-/* FINAL 15 PHOTO MAX-FILL LANDSCAPE LAYOUT
-   6×4 horizontal page
-   5 columns × 3 rows
-   Photo ratio fixed at 1.1 : 1.35
-   Size is calculated to cover the page as much as safely possible.
-*/
-const cols=5;
-const rows=3;
+/* PHOTO TO PDF */
 
-const marginX=18;
-const marginY=18;
-const gapX=26;
-const gapY=26;
+async function createPDF(){
 
-const ratio=PHOTO_W/PHOTO_H;
+  const images =
+  selectedFiles.filter(
+    f=>f.type.startsWith("image/")
+  );
 
-/* Maximum width allowed by 5 columns */
-const maxWByPage=(P6W-(marginX*2)-(gapX*(cols-1)))/cols;
+  if(!images.length){
 
-/* Maximum height allowed by 3 rows, converted back to width */
-const maxHByPage=(P6H-(marginY*2)-(gapY*(rows-1)))/rows;
-const maxWByHeight=maxHByPage*ratio;
+    alert("প্রথমে ছবি নির্বাচন করুন।");
+    return;
 
-/* Largest safe photo size: no overlap and no overflow */
-const pw=Math.floor(Math.min(maxWByPage,maxWByHeight));
-const ph=Math.floor(pw/ratio);
+  }
 
-const totalW=(pw*cols)+(gapX*(cols-1));
-const totalH=(ph*rows)+(gapY*(rows-1));
+  const {jsPDF} = window.jspdf;
 
-const sx=Math.round((P6W-totalW)/2);
-const sy=Math.round((P6H-totalH)/2);
+  const size =
+  document.getElementById("pageSize").value;
 
-for(let row=0;row<rows;row++){
-    for(let col=0;col<cols;col++){
-        draw(
-            x,
-            sx+col*(pw+gapX),
-            sy+row*(ph+gapY),
-            pw,
-            ph
-        );
-    }
-}
+  const margin =
+  Number(document.getElementById("margin").value);
 
-return c
-}
+  const pdf =
+  new jsPDF({
+    orientation:"portrait",
+    unit:"mm",
+    format:size.toLowerCase()
+  });
 
-/* ===== A4 PHOTO LAYOUTS =====
-   A4 @ 300 DPI = 2480 × 3508 px
-   Exact photo = 1.1 × 1.35 inch = 330 × 405 px
-   Gap increased for easier scissor cutting
-   Existing draw() keeps 2px black border on every photo.
-*/
-function a4Max(){
-    const c=canvas(A4W,A4H),x=c.getContext('2d');
+  for(let i=0;i<images.length;i++){
 
-    /* A4 SAFE PRINT AREA
-       Keep a visible page margin on all sides.
-       A4 photo size is only slightly reduced from 330×405
-       so printing/cutting is safer near left/right edges.
-    */
-    const pageMarginX=55;
-    const pageMarginY=55;
-    const cols=7,rows=8;
-    const gapX=28,gapY=30;
+    if(i>0) pdf.addPage();
 
-    const ratio=PHOTO_W/PHOTO_H;
+    const data =
+    await fileToDataURL(images[i]);
 
-    const maxWByPage=(A4W-(pageMarginX*2)-(gapX*(cols-1)))/cols;
-    const maxHByPage=(A4H-(pageMarginY*2)-(gapY*(rows-1)))/rows;
-    const maxWByHeight=maxHByPage*ratio;
+    const img =
+    new Image();
 
-    const pw=Math.floor(Math.min(PHOTO_W,maxWByPage,maxWByHeight));
-    const ph=Math.floor(pw/ratio);
+    await new Promise(resolve=>{
 
-    const totalW=(pw*cols)+(gapX*(cols-1));
-    const totalH=(ph*rows)+(gapY*(rows-1));
+      img.onload=resolve;
 
-    const sx=Math.round((A4W-totalW)/2);
-    const sy=Math.round((A4H-totalH)/2);
+      img.src=data;
 
-    for(let row=0;row<rows;row++){
-        for(let col=0;col<cols;col++){
-            draw(
-                x,
-                sx+col*(pw+gapX),
-                sy+row*(ph+gapY),
-                pw,
-                ph
-            );
-        }
-    }
+    });
 
-    return c;
-}
+    const pageW =
+    pdf.internal.pageSize.getWidth();
 
-function a4Seven(){
-    const c=canvas(A4W,A4H),x=c.getContext('2d');
+    const pageH =
+    pdf.internal.pageSize.getHeight();
 
-    const pageMarginX=55;
-    const cols=7;
-    const gapX=28;
-    const ratio=PHOTO_W/PHOTO_H;
+    const maxW =
+    pageW-margin*2;
 
-    const maxWByPage=(A4W-(pageMarginX*2)-(gapX*(cols-1)))/cols;
-    const pw=Math.floor(Math.min(PHOTO_W,maxWByPage));
-    const ph=Math.floor(pw/ratio);
+    const maxH =
+    pageH-margin*2;
 
-    const totalW=(pw*cols)+(gapX*(cols-1));
-    const sx=Math.round((A4W-totalW)/2);
-    const sy=70;
+    let w=img.width;
+    let h=img.height;
 
-    for(let col=0;col<cols;col++){
-        draw(
-            x,
-            sx+col*(pw+gapX),
-            sy,
-            pw,
-            ph
-        );
-    }
+    const ratio =
+    Math.min(maxW/w,maxH/h);
 
-    return c;
-}
+    w*=ratio;
+    h*=ratio;
 
-function a4Fourteen(){
-    const c=canvas(A4W,A4H),x=c.getContext('2d');
+    const x =
+    (pageW-w)/2;
 
-    const pageMarginX=55;
-    const cols=7,rows=2;
-    const gapX=28,gapY=42;
-    const ratio=PHOTO_W/PHOTO_H;
+    const y =
+    (pageH-h)/2;
 
-    const maxWByPage=(A4W-(pageMarginX*2)-(gapX*(cols-1)))/cols;
-    const pw=Math.floor(Math.min(PHOTO_W,maxWByPage));
-    const ph=Math.floor(pw/ratio);
-
-    const totalW=(pw*cols)+(gapX*(cols-1));
-    const sx=Math.round((A4W-totalW)/2);
-    const sy=70;
-
-    for(let row=0;row<rows;row++){
-        for(let col=0;col<cols;col++){
-            draw(
-                x,
-                sx+col*(pw+gapX),
-                sy+row*(ph+gapY),
-                pw,
-                ph
-            );
-        }
-    }
-
-    return c;
-}
-
-function dl(c,n){c.toBlob(b=>{if(!b)return msg('Download image তৈরি করা যায়নি।','error');const u=URL.createObjectURL(b),a=document.createElement('a');a.href=u;a.download=n;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),1500)},'image/jpeg',0.98)}
-async function load(f){
-    if(!f)return;
-
-    const ok=await validateLocalImageFile(
-        f,
-        15*1024*1024,
-        m=>msg(m,'error')
+    pdf.addImage(
+      data,
+      "JPEG",
+      x,
+      y,
+      w,
+      h
     );
-    if(!ok)return;
 
-    const u=URL.createObjectURL(f),im=new Image();
+  }
 
-    im.onload=()=>{
-        if(!validateDecodedImageDimensions(im,m=>msg(m,'error'))){
-            URL.revokeObjectURL(u);
-            enable(false);
-            return;
-        }
+  generatedPDF =
+  pdf.output("blob");
 
-        if(sourceUrl)URL.revokeObjectURL(sourceUrl);
-        sourceUrl=u;
-        sourceImg=im;
-        enable(false);
-        msg('Photo uploaded. এখন 1.1 × 1.35 ratio-তে crop করে Crop & Use Photo চাপুন।');
-        openCropModal();
-        requestAnimationFrame(()=>requestAnimationFrame(renderSourceForCrop));
-    };
+  createDownload(
+    generatedPDF,
+    "JANA-ONLINE-SERVICE.pdf"
+  );
 
-    im.onerror=()=>{
-        URL.revokeObjectURL(u);
-        enable(false);
-        msg('Photo read করা যায়নি।','error');
-    };
+  alert("PDF তৈরি হয়েছে!");
 
-    im.src=u;
 }
-input.addEventListener('change',()=>input.files[0]&&load(input.files[0]));['dragenter','dragover'].forEach(e=>drop.addEventListener(e,x=>{x.preventDefault();drop.classList.add('dragover')}));['dragleave','drop'].forEach(e=>drop.addEventListener(e,x=>{x.preventDefault();drop.classList.remove('dragover')}));drop.addEventListener('drop',e=>{const f=e.dataTransfer&&e.dataTransfer.files[0];if(f)load(f)});
-buttons[0].onclick=()=>img&&dl(three(),'studio-3-photo-4x6-300dpi.jpg');buttons[1].onclick=()=>img&&dl(six(),'studio-6-photo-4x6-300dpi.jpg');buttons[2].onclick=()=>img&&dl(twelve(),'studio-12-photo-4x6-300dpi.jpg');buttons[3].onclick=()=>img&&dl(fifteen(),'studio-15-photo-6x4-landscape-300dpi.jpg');buttons[4].onclick=()=>img&&dl(a4Max(),'studio-A4-max-56-photo-1.1x1.35-300dpi.jpg');buttons[5].onclick=()=>img&&dl(a4Seven(),'studio-A4-top-row-7-photo-1.1x1.35-300dpi.jpg');buttons[6].onclick=()=>img&&dl(a4Fourteen(),'studio-A4-top-2-rows-14-photo-1.1x1.35-300dpi.jpg');
-})();
+
+
+/* FILE TO DATA */
+
+function fileToDataURL(file){
+
+  return new Promise(resolve=>{
+
+    const reader =
+    new FileReader();
+
+    reader.onload =
+    ()=>resolve(reader.result);
+
+    reader.readAsDataURL(file);
+
+  });
+
+}
+
+
+/* DOWNLOAD */
+
+function createDownload(blob,name){
+
+  const url =
+  URL.createObjectURL(blob);
+
+  const btn =
+  document.getElementById("downloadBtn");
+
+  btn.style.display="inline-block";
+
+  btn.onclick=function(){
+
+    const a =
+    document.createElement("a");
+
+    a.href=url;
+
+    a.download=name;
+
+    a.click();
+
+  };
+
+}
+
+
+/* MERGE PDF */
+
+async function mergePDF(){
+
+  const pdfFiles =
+  selectedFiles.filter(
+    f=>f.type==="application/pdf"
+  );
+
+  if(pdfFiles.length<2){
+
+    alert("কমপক্ষে ২টি PDF নির্বাচন করুন।");
+    return;
+
+  }
+
+  const merged =
+  await PDFLib.PDFDocument.create();
+
+  for(const file of pdfFiles){
+
+    const bytes =
+    await file.arrayBuffer();
+
+    const pdf =
+    await PDFLib.PDFDocument.load(bytes);
+
+    const pages =
+    await merged.copyPages(
+      pdf,
+      pdf.getPageIndices()
+    );
+
+    pages.forEach(page=>{
+      merged.addPage(page);
+    });
+
+  }
+
+  const bytes =
+  await merged.save();
+
+  const blob =
+  new Blob([bytes],{
+    type:"application/pdf"
+  });
+
+  generatedPDF=blob;
+
+  createDownload(
+    blob,
+    "Merged-PDF.pdf"
+  );
+
+  alert("PDF Merge হয়েছে!");
+
+}
+
+
+/* ROTATE PDF */
+
+async function rotatePDF(){
+
+  const file =
+  selectedFiles.find(
+    f=>f.type==="application/pdf"
+  );
+
+  if(!file){
+
+    alert("একটি PDF নির্বাচন করুন।");
+    return;
+
+  }
+
+  const bytes =
+  await file.arrayBuffer();
+
+  const pdf =
+  await PDFLib.PDFDocument.load(bytes);
+
+  const degree =
+  Number(
+    document.getElementById("rotateDegree").value
+  );
+
+  pdf.getPages().forEach(page=>{
+
+    page.setRotation(
+      PDFLib.degrees(degree)
+    );
+
+  });
+
+  const output =
+  await pdf.save();
+
+  const blob =
+  new Blob([output],{
+    type:"application/pdf"
+  });
+
+  createDownload(
+    blob,
+    "Rotated-PDF.pdf"
+  );
+
+}
+
+
+/* SPLIT */
+
+async function splitPDF(){
+
+  const file =
+  selectedFiles.find(
+    f=>f.type==="application/pdf"
+  );
+
+  if(!file){
+
+    alert("PDF নির্বাচন করুন।");
+    return;
+
+  }
+
+  const range =
+  document.getElementById("pageRange")
+  .value.trim();
+
+  const match =
+  range.match(/^(\d+)-(\d+)$/);
+
+  if(!match){
+
+    alert("Example: 1-3");
+    return;
+
+  }
+
+  const start =
+  Number(match[1])-1;
+
+  const end =
+  Number(match[2])-1;
+
+  const bytes =
+  await file.arrayBuffer();
+
+  const source =
+  await PDFLib.PDFDocument.load(bytes);
+
+  const output =
+  await PDFLib.PDFDocument.create();
+
+  const indexes=[];
+
+  for(
+    let i=start;
+    i<=end && i<source.getPageCount();
+    i++
+  ){
+
+    indexes.push(i);
+
+  }
+
+  const pages =
+  await output.copyPages(
+    source,
+    indexes
+  );
+
+  pages.forEach(p=>output.addPage(p));
+
+  const result =
+  await output.save();
+
+  const blob =
+  new Blob([result],{
+    type:"application/pdf"
+  });
+
+  createDownload(
+    blob,
+    "Split-PDF.pdf"
+  );
+
+}
+
+
+/* COMPRESS */
+
+async function compressPDF(){
+
+  const file =
+  selectedFiles.find(
+    f=>f.type==="application/pdf"
+  );
+
+  if(!file){
+
+    alert("PDF নির্বাচন করুন।");
+    return;
+
+  }
+
+  const quality =
+  Number(
+    document.getElementById("quality").value
+  );
+
+  const bar =
+  document.getElementById("progressBar");
+
+  const status =
+  document.getElementById("compressStatus");
+
+  bar.style.width="30%";
+
+  /*
+    Browser-only compression:
+    PDF structure optimize করে।
+    খুব বেশি compression প্রয়োজন হলে
+    PDF pages rasterize করা ভালো।
+  */
+
+  const bytes =
+  await file.arrayBuffer();
+
+  const pdf =
+  await PDFLib.PDFDocument.load(bytes);
+
+  const output =
+  await pdf.save({
+    useObjectStreams:true,
+    addDefaultPage:false
+  });
+
+  bar.style.width="100%";
+
+  const blob =
+  new Blob([output],{
+    type:"application/pdf"
+  });
+
+  const oldSize =
+  (file.size/1024).toFixed(1);
+
+  const newSize =
+  (blob.size/1024).toFixed(1);
+
+  status.style.display="block";
+
+  status.innerHTML=
+  `Original: ${oldSize} KB<br>
+   New Size: ${newSize} KB`;
+
+  createDownload(
+    blob,
+    "Compressed-PDF.pdf"
+  );
+
+}
+
+
+/* PDF TO IMAGE */
+
+async function pdfToImage(){
+
+  alert(
+    "PDF → Image-এর জন্য PDF.js rendering system যুক্ত করা হয়েছে। আপনার production version-এ page-by-page JPG/PNG export করা যাবে।"
+  );
+
+}
+
 </script>
 
-
-<ins class="adsbygoogle adsbygoogle-noablate" data-ad-hi="true" data-adsbygoogle-status="done" style="display: none !important;" data-ad-status="unfilled"><div id="aswift_0_host" style="border-width: medium; border-style: none; border-color: currentcolor; border-image: none; height: 0px; width: 0px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block;"><iframe id="aswift_0" name="aswift_0" style="left:0;position:absolute;top:0;border:0;width:undefinedpx;height:undefinedpx;min-height:auto;max-height:none;min-width:auto;max-width:none;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allow="run-ad-auction" src="./suman9907bit.github.io_files/ads.html" data-google-container-id="a!1" tabindex="0" title="Advertisement" aria-label="Advertisement" data-load-complete="true"></iframe></div></ins><script>
-(function(){
-'use strict';
-
-const DPI=300;
-const PAGE_4X6_W=1200, PAGE_4X6_H=1800;
-const A4_W=2480, A4_H=3508;
-const GAP_X=36, GAP_Y=36;
-const PAGE_MARGIN_X=36, PAGE_MARGIN_Y=40;
-const TOP_START_Y=40;
-
-const input=document.getElementById('advancedPhotoInput');
-const drop=document.getElementById('advancedPhotoDrop');
-const preview=document.getElementById('advancedPhotoPreview');
-const empty=document.getElementById('advancedPhotoEmpty');
-const status=document.getElementById('advancedPhotoStatus');
-
-const cropModal=document.getElementById('advancedCropModal');
-const cropStage=document.getElementById('advancedCropStage');
-const cropCanvas=document.getElementById('advancedCropCanvas');
-const cropBox=document.getElementById('advancedCropBox');
-const cropClose=document.getElementById('advancedCropClose');
-const cropCancel=document.getElementById('advancedCropCancel');
-const cropApply=document.getElementById('advancedCropApply');
-
-const unitSelect=document.getElementById('advancedUnit');
-const widthInput=document.getElementById('advancedWidth');
-const heightInput=document.getElementById('advancedHeight');
-
-const count4x6=document.getElementById('advancedCount4x6');
-const countA4=document.getElementById('advancedCountA4');
-const btn4x6=document.getElementById('advancedDownload4x6');
-const btnA4=document.getElementById('advancedDownloadA4');
-const max4x6Text=document.getElementById('advancedMax4x6');
-const maxA4Text=document.getElementById('advancedMaxA4');
-
-if(!input||!drop)return;
-
-let sourceImg=null;
-let sourceUrl=null;
-let finalImg=null;
-let finalUrl=null;
-let cropRect={x:0,y:0,w:0,h:0};
-let targetPxW=330,targetPxH=405;
-let cropRatio=targetPxW/targetPxH;
-
-function msg(t,type){
-    status.textContent=t;
-    status.classList.remove('success','error');
-    if(type)status.classList.add(type);
-}
-
-async function validateAdvancedImageFile(f){
-    if(!f)return false;
-
-    const name=(f.name||'').toLowerCase();
-    if(!/\.(jpe?g|png|webp)$/.test(name)){
-        msg('শুধু JPG, JPEG, PNG বা WebP photo ব্যবহার করুন।','error');
-        return false;
-    }
-    if(!/^image\/(jpeg|png|webp)$/i.test(f.type)){
-        msg('Invalid image file type.','error');
-        return false;
-    }
-    if(f.size<=0 || f.size>20*1024*1024){
-        msg('Photo 20 MB-এর মধ্যে হতে হবে।','error');
-        return false;
-    }
-
-    let bytes;
-    try{
-        bytes=new Uint8Array(await f.slice(0,16).arrayBuffer());
-    }catch(_){
-        msg('File read করা যায়নি।','error');
-        return false;
-    }
-
-    const isJpeg=bytes.length>=3 && bytes[0]===0xFF && bytes[1]===0xD8 && bytes[2]===0xFF;
-    const isPng=bytes.length>=8 &&
-        bytes[0]===0x89 && bytes[1]===0x50 && bytes[2]===0x4E && bytes[3]===0x47 &&
-        bytes[4]===0x0D && bytes[5]===0x0A && bytes[6]===0x1A && bytes[7]===0x0A;
-    const isWebp=bytes.length>=12 &&
-        bytes[0]===0x52 && bytes[1]===0x49 && bytes[2]===0x46 && bytes[3]===0x46 &&
-        bytes[8]===0x57 && bytes[9]===0x45 && bytes[10]===0x42 && bytes[11]===0x50;
-
-    if(!(isJpeg||isPng||isWebp)){
-        msg('এটি valid JPG/PNG/WebP image নয়।','error');
-        return false;
-    }
-
-    return true;
-}
-
-function validateAdvancedDimensions(im){
-    const w=Number(im.naturalWidth||0);
-    const h=Number(im.naturalHeight||0);
-    if(!w||!h){
-        msg('Image dimensions invalid.','error');
-        return false;
-    }
-    if(w>20000 || h>20000 || (w*h)>80000000){
-        msg('Image resolution খুব বড়। Maximum 80 megapixel-এর মধ্যে photo ব্যবহার করুন।','error');
-        return false;
-    }
-    return true;
-}
-
-function pageCanvas(w,h){
-    const c=document.createElement('canvas');
-    c.width=w;c.height=h;
-    const x=c.getContext('2d',{alpha:false});
-    x.fillStyle='#fff';x.fillRect(0,0,w,h);
-    x.imageSmoothingEnabled=true;
-    x.imageSmoothingQuality='high';
-    return c;
-}
-
-function unitToInches(v,unit){
-    v=parseFloat(v);
-    if(!isFinite(v)||v<=0)return 0;
-    if(unit==='cm')return v/2.54;
-    if(unit==='mm')return v/25.4;
-    return v;
-}
-
-function updateTargetSize(){
-    const unit=unitSelect.value;
-    const wIn=unitToInches(widthInput.value,unit);
-    const hIn=unitToInches(heightInput.value,unit);
-
-    if(wIn<=0||hIn<=0){
-        return false;
-    }
-
-    if(wIn>12||hIn>12){
-        msg('Width/Height খুব বড়। 12 inch-এর মধ্যে size দিন।','error');
-        return false;
-    }
-
-    targetPxW=Math.max(1,Math.round(wIn*DPI));
-    targetPxH=Math.max(1,Math.round(hIn*DPI));
-    cropRatio=targetPxW/targetPxH;
-    return true;
-}
-
-function openCrop(){
-    if(!updateTargetSize())return;
-    cropModal.classList.add('open');
-    cropModal.setAttribute('aria-hidden','false');
-    document.body.style.overflow='hidden';
-    requestAnimationFrame(()=>requestAnimationFrame(renderCropSource));
-}
-function closeCrop(){
-    cropModal.classList.remove('open');
-    cropModal.setAttribute('aria-hidden','true');
-    document.body.style.overflow='';
-}
-function stageSize(){
-    const r=cropStage.getBoundingClientRect();
-    return {w:r.width,h:r.height};
-}
-function syncCropBox(){
-    cropBox.style.left=cropRect.x+'px';
-    cropBox.style.top=cropRect.y+'px';
-    cropBox.style.width=cropRect.w+'px';
-    cropBox.style.height=cropRect.h+'px';
-}
-function initCropBox(){
-    const s=stageSize();
-    let w=s.w*.72;
-    let h=w/cropRatio;
-    if(h>s.h*.78){
-        h=s.h*.78;
-        w=h*cropRatio;
-    }
-    if(w>s.w*.82){
-        w=s.w*.82;
-        h=w/cropRatio;
-    }
-    cropRect={
-        x:(s.w-w)/2,
-        y:(s.h-h)/2,
-        w:w,
-        h:h
-    };
-    syncCropBox();
-}
-function renderCropSource(){
-    if(!sourceImg)return;
-    const maxW=1800;
-    const scale=Math.min(1,maxW/sourceImg.naturalWidth);
-    cropCanvas.width=Math.max(1,Math.round(sourceImg.naturalWidth*scale));
-    cropCanvas.height=Math.max(1,Math.round(sourceImg.naturalHeight*scale));
-
-    const x=cropCanvas.getContext('2d',{alpha:false});
-    x.fillStyle='#fff';
-    x.fillRect(0,0,cropCanvas.width,cropCanvas.height);
-    x.imageSmoothingEnabled=true;
-    x.imageSmoothingQuality='high';
-    x.drawImage(sourceImg,0,0,cropCanvas.width,cropCanvas.height);
-    requestAnimationFrame(initCropBox);
-}
-function clampCrop(){
-    const s=stageSize();
-    cropRect.w=Math.max(50,Math.min(cropRect.w,s.w));
-    cropRect.h=cropRect.w/cropRatio;
-
-    if(cropRect.h>s.h){
-        cropRect.h=s.h;
-        cropRect.w=cropRect.h*cropRatio;
-    }
-
-    cropRect.x=Math.max(0,Math.min(cropRect.x,s.w-cropRect.w));
-    cropRect.y=Math.max(0,Math.min(cropRect.y,s.h-cropRect.h));
-    syncCropBox();
-}
-
-let dragMode=null,activeHandle=null,startX=0,startY=0,startRect=null;
-
-cropBox.addEventListener('pointerdown',function(e){
-    e.preventDefault();
-    activeHandle=e.target && e.target.dataset ? e.target.dataset.handle : null;
-    dragMode=activeHandle?'resize':'move';
-    startX=e.clientX;
-    startY=e.clientY;
-    startRect={...cropRect};
-    cropBox.setPointerCapture(e.pointerId);
-});
-
-cropBox.addEventListener('pointermove',function(e){
-    if(!dragMode)return;
-    e.preventDefault();
-
-    const dx=e.clientX-startX;
-    const dy=e.clientY-startY;
-
-    if(dragMode==='move'){
-        cropRect.x=startRect.x+dx;
-        cropRect.y=startRect.y+dy;
-        clampCrop();
-        return;
-    }
-
-    const s=stageSize();
-    let newW=startRect.w;
-
-    if(activeHandle==='br'){
-        newW=Math.max(50,startRect.w+dx);
-        cropRect.x=startRect.x;
-        cropRect.y=startRect.y;
-    }else if(activeHandle==='tr'){
-        newW=Math.max(50,startRect.w+dx);
-        cropRect.x=startRect.x;
-        cropRect.y=startRect.y+startRect.h-(newW/cropRatio);
-    }else if(activeHandle==='bl'){
-        newW=Math.max(50,startRect.w-dx);
-        cropRect.x=startRect.x+startRect.w-newW;
-        cropRect.y=startRect.y;
-    }else{
-        newW=Math.max(50,startRect.w-dx);
-        cropRect.x=startRect.x+startRect.w-newW;
-        cropRect.y=startRect.y+startRect.h-(newW/cropRatio);
-    }
-
-    cropRect.w=newW;
-    cropRect.h=newW/cropRatio;
-
-    if(cropRect.x<0)cropRect.x=0;
-    if(cropRect.y<0)cropRect.y=0;
-
-    if(cropRect.x+cropRect.w>s.w){
-        cropRect.w=s.w-cropRect.x;
-        cropRect.h=cropRect.w/cropRatio;
-    }
-    if(cropRect.y+cropRect.h>s.h){
-        cropRect.h=s.h-cropRect.y;
-        cropRect.w=cropRect.h*cropRatio;
-    }
-
-    syncCropBox();
-});
-
-function endDrag(e){
-    if(!dragMode)return;
-    dragMode=null;
-    activeHandle=null;
-    try{cropBox.releasePointerCapture(e.pointerId)}catch(_){}
-}
-cropBox.addEventListener('pointerup',endDrag);
-cropBox.addEventListener('pointercancel',endDrag);
-
-function recalcRatio(){
-    if(!updateTargetSize())return;
-    if(cropModal.classList.contains('open'))initCropBox();
-}
-unitSelect.addEventListener('change',recalcRatio);
-widthInput.addEventListener('input',recalcRatio);
-heightInput.addEventListener('input',recalcRatio);
-
-cropClose.addEventListener('click',closeCrop);
-cropCancel.addEventListener('click',closeCrop);
-cropModal.addEventListener('click',function(e){if(e.target===cropModal)closeCrop()});
-
-cropApply.addEventListener('click',function(){
-    if(!sourceImg||!updateTargetSize())return;
-
-    const s=stageSize();
-    const scaleX=cropCanvas.width/s.w;
-    const scaleY=cropCanvas.height/s.h;
-
-    const sx=Math.max(0,Math.round(cropRect.x*scaleX));
-    const sy=Math.max(0,Math.round(cropRect.y*scaleY));
-    const sw=Math.max(1,Math.round(cropRect.w*scaleX));
-    const sh=Math.max(1,Math.round(cropRect.h*scaleY));
-
-    const out=pageCanvas(targetPxW,targetPxH);
-    const ox=out.getContext('2d');
-    ox.drawImage(cropCanvas,sx,sy,sw,sh,0,0,targetPxW,targetPxH);
-
-    const data=out.toDataURL('image/jpeg',0.98);
-    const im=new Image();
-    im.onload=function(){
-        finalImg=im;
-        finalUrl=data;
-        preview.src=data;
-        preview.style.display='block';
-        empty.style.display='none';
-        closeCrop();
-        updateSheetLimits();
-        msg('Crop complete. Custom-size photo ready.','success');
-    };
-    im.src=data;
-});
-
-function layoutCapacity(pageW,pageH){
-    const usableW=pageW-(PAGE_MARGIN_X*2);
-    const usableH=pageH-(PAGE_MARGIN_Y*2);
-    const cols=Math.max(0,Math.floor((usableW+GAP_X)/(targetPxW+GAP_X)));
-    const rows=Math.max(0,Math.floor((usableH+GAP_Y)/(targetPxH+GAP_Y)));
-    return {
-        cols:cols,
-        rows:rows,
-        max:cols*rows
-    };
-}
-
-function updateSheetLimits(){
-    if(!finalImg)return;
-
-    const l4=layoutCapacity(PAGE_4X6_W,PAGE_4X6_H);
-    const la=layoutCapacity(A4_W,A4_H);
-
-    count4x6.disabled=l4.max<1;
-    btn4x6.disabled=l4.max<1;
-    countA4.disabled=la.max<1;
-    btnA4.disabled=la.max<1;
-
-    count4x6.max=Math.max(1,l4.max);
-    countA4.max=Math.max(1,la.max);
-
-    count4x6.value=Math.max(1,l4.max);
-    countA4.value=Math.max(1,la.max);
-
-    max4x6Text.textContent=l4.max>0
-        ? 'Maximum '+l4.max+' photos fit on 4×6 page.'
-        : 'এই photo size 4×6 page-এর জন্য বড়।';
-
-    maxA4Text.textContent=la.max>0
-        ? 'Maximum '+la.max+' photos fit on A4 page.'
-        : 'এই photo size A4 page-এর জন্য বড়।';
-}
-
-function drawOne(ctx,x,y){
-    ctx.drawImage(finalImg,x,y,targetPxW,targetPxH);
-
-    ctx.save();
-    ctx.strokeStyle='#000000';
-    ctx.lineWidth=2;
-    ctx.strokeRect(x+1,y+1,Math.max(0,targetPxW-2),Math.max(0,targetPxH-2));
-    ctx.restore();
-}
-
-function buildSheet(pageW,pageH,requested){
-    const layout=layoutCapacity(pageW,pageH);
-    if(layout.max<1)throw new Error('Photo does not fit this page.');
-
-    let count=parseInt(requested,10);
-    if(!isFinite(count)||count<1)count=1;
-    count=Math.min(count,layout.max);
-
-    const c=pageCanvas(pageW,pageH);
-    const x=c.getContext('2d');
-
-    /* TOP-ALIGNED layout:
-       Start from first row at the top, fill left-to-right,
-       then continue downward. Fewer photos never get vertically centered.
-    */
-    let placed=0;
-
-    for(let row=0;row<layout.rows && placed<count;row++){
-        const inThisRow=Math.min(layout.cols,count-placed);
-
-        /* Every row starts from the left safe margin.
-           If the last row has only 1–2 photos, they stay on the left
-           instead of moving to the middle of the page. */
-        const rowX=PAGE_MARGIN_X;
-        const y=TOP_START_Y+row*(targetPxH+GAP_Y);
-
-        for(let col=0;col<inThisRow;col++){
-            const px=rowX+col*(targetPxW+GAP_X);
-            drawOne(x,px,y);
-            placed++;
-        }
-    }
-
-    return c;
-}
-
-function downloadCanvas(c,filename){
-    c.toBlob(function(blob){
-        if(!blob){
-            msg('Output image তৈরি করা যায়নি।','error');
-            return;
-        }
-        const u=URL.createObjectURL(blob);
-        const a=document.createElement('a');
-        a.href=u;
-        a.download=filename;
-        document.body.appendChild(a);
-        a.click();
-        a.remove();
-        setTimeout(()=>URL.revokeObjectURL(u),1500);
-    },'image/jpeg',0.98);
-}
-
-btn4x6.addEventListener('click',function(){
-    if(!finalImg)return;
-    try{
-        downloadCanvas(
-            buildSheet(PAGE_4X6_W,PAGE_4X6_H,count4x6.value),
-            'advanced-photo-4x6-300dpi.jpg'
-        );
-    }catch(e){
-        console.error(e);
-        msg(e.message||'4×6 output তৈরি করা যায়নি।','error');
-    }
-});
-
-btnA4.addEventListener('click',function(){
-    if(!finalImg)return;
-    try{
-        downloadCanvas(
-            buildSheet(A4_W,A4_H,countA4.value),
-            'advanced-photo-A4-300dpi.jpg'
-        );
-    }catch(e){
-        console.error(e);
-        msg(e.message||'A4 output তৈরি করা যায়নি।','error');
-    }
-});
-
-async function loadFile(f){
-    if(!f)return;
-
-    if(!(await validateAdvancedImageFile(f)))return;
-
-    const u=URL.createObjectURL(f);
-    const im=new Image();
-
-    im.onload=function(){
-        if(!validateAdvancedDimensions(im)){
-            URL.revokeObjectURL(u);
-            return;
-        }
-
-        if(sourceUrl)URL.revokeObjectURL(sourceUrl);
-        sourceUrl=u;
-        sourceImg=im;
-
-        finalImg=null;
-        finalUrl=null;
-        preview.style.display='none';
-        empty.style.display='block';
-
-        count4x6.disabled=true;
-        countA4.disabled=true;
-        btn4x6.disabled=true;
-        btnA4.disabled=true;
-
-        msg('Photo uploaded. এখন custom size সেট করে crop করুন।');
-        openCrop();
-    };
-
-    im.onerror=function(){
-        URL.revokeObjectURL(u);
-        msg('Photo read করা যায়নি।','error');
-    };
-
-    im.src=u;
-}
-
-input.addEventListener('change',function(){
-    if(input.files && input.files[0])loadFile(input.files[0]);
-});
-
-['dragenter','dragover'].forEach(function(name){
-    drop.addEventListener(name,function(e){
-        e.preventDefault();
-        drop.classList.add('dragover');
-    });
-});
-['dragleave','drop'].forEach(function(name){
-    drop.addEventListener(name,function(e){
-        e.preventDefault();
-        drop.classList.remove('dragover');
-    });
-});
-drop.addEventListener('drop',function(e){
-    const f=e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0];
-    if(f)loadFile(f);
-});
-
-window.addEventListener('resize',function(){
-    if(cropModal.classList.contains('open'))requestAnimationFrame(initCropBox);
-});
-
-})();
-</script>
-
-<script>
-document.addEventListener('DOMContentLoaded',function(){
-    const search=document.getElementById('toolSearch');
-    if(!search) return;
-
-    search.addEventListener('input',function(){
-        const value=search.value.toLowerCase().trim();
-
-        document.querySelectorAll('#toolsGrid .tool-card').forEach(function(card){
-            const haystack=(card.getAttribute('data-search')||'').toLowerCase();
-            card.style.display=(!value || haystack.includes(value)) ? 'flex' : 'none';
-        });
-    });
-});
-</script>
-
-</body></html>
+</body>
+</html>
