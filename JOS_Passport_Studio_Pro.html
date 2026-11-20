@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#071d2b">
+<title>JOS Passport Studio Pro</title>
+<style>
+:root{--bg:#071d2b;--panel:#0d2938;--panel2:#123747;--line:#245263;--text:#eaf7f8;--muted:#9bb8c1;--teal:#16c6b2;--aqua:#5be3d0;--blue:#3196bd;--danger:#ff7777;--shadow:0 12px 35px #0005}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(135deg,#061722,#0b2635 55%,#09202c);color:var(--text);font:14px/1.45 system-ui,-apple-system,"Segoe UI",sans-serif;min-height:100vh}
+button,input,select{font:inherit}button{cursor:pointer;border:1px solid var(--line);color:var(--text);background:#15394a;border-radius:10px;padding:9px 12px;transition:.18s}button:hover{border-color:var(--aqua);transform:translateY(-1px)}button:disabled{opacity:.45;cursor:not-allowed;transform:none}.primary{background:linear-gradient(135deg,#12aa9c,#1689ad);border:0;color:white;font-weight:700}.soft{background:#123747}.danger{background:#492b36;border-color:#75404d}.small{padding:6px 9px;font-size:12px}.app{max-width:1600px;margin:auto;padding:16px}.top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}.brand{display:flex;align-items:center;gap:12px}.logo{width:42px;height:42px;border-radius:13px;background:linear-gradient(145deg,var(--teal),var(--blue));display:grid;place-items:center;font-size:20px;font-weight:900;color:#06212b;box-shadow:0 8px 22px #16c6b255}.brand h1{font-size:18px;margin:0;letter-spacing:.3px}.brand p{margin:2px 0 0;color:var(--muted);font-size:11px}.top-actions{display:flex;gap:8px;align-items:center}.status{color:var(--muted);font-size:12px}.workspace{display:grid;grid-template-columns:220px minmax(300px,1fr) 270px;gap:14px;align-items:start}.panel{background:linear-gradient(180deg,#0e2b3a,#0b2432);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);padding:14px;min-width:0}.panel h2{font-size:13px;margin:0 0 12px;color:#c9e8eb;letter-spacing:.5px;text-transform:uppercase}.tool-list{display:grid;gap:7px}.tool-list button{text-align:left;display:flex;align-items:center;gap:9px}.tool-list button.active{background:#155366;border-color:#27c8b7;color:#fff}.ico{width:22px;text-align:center;font-size:17px}.section{border-top:1px solid #204655;margin-top:14px;padding-top:13px}.section:first-of-type{border-top:0;margin-top:0;padding-top:0}.field{display:grid;gap:5px;margin:10px 0}.field label{font-size:12px;color:#b8d3d9}.field input,.field select{width:100%;background:#071e2a;color:var(--text);border:1px solid #285263;border-radius:9px;padding:9px;min-width:0}.row{display:flex;gap:8px;align-items:center}.row>*{flex:1;min-width:0}.canvas-wrap{min-height:560px;display:flex;flex-direction:column;gap:10px}.canvas-toolbar{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}.canvas-toolbar .group{display:flex;gap:6px;flex-wrap:wrap}.stage{position:relative;flex:1;min-height:490px;border:1px dashed #376071;border-radius:14px;background-color:#102d3a;background-image:linear-gradient(45deg,#173b48 25%,transparent 25%),linear-gradient(-45deg,#173b48 25%,transparent 25%),linear-gradient(45deg,transparent 75%,#173b48 75%),linear-gradient(-45deg,transparent 75%,#173b48 75%);background-size:22px 22px;background-position:0 0,0 11px,11px -11px,-11px 0;display:grid;place-items:center;overflow:hidden}.empty{text-align:center;color:var(--muted);padding:25px}.empty .big{font-size:46px;margin-bottom:8px}.preview{max-width:90%;max-height:480px;object-fit:contain;box-shadow:0 10px 30px #0008}.crop-layer{position:absolute;inset:0;display:none;touch-action:none}.crop-box{position:absolute;border:2px solid #6df5dc;box-shadow:0 0 0 9999px #00131a88;touch-action:none}.crop-box:before,.crop-box:after{content:"";position:absolute;inset:33.33% 0 auto;border-top:1px dashed #ffffff99}.crop-box:after{inset:0 auto 0 33.33%;border-top:0;border-left:1px dashed #ffffff99}.handle{position:absolute;width:17px;height:17px;background:#eafffc;border:3px solid #11bba9;border-radius:50%;z-index:3;touch-action:none}.tl{left:-9px;top:-9px}.tr{right:-9px;top:-9px}.bl{left:-9px;bottom:-9px}.br{right:-9px;bottom:-9px}.crop-hint{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);background:#071d2bdc;padding:6px 10px;border-radius:8px;color:#d9f5f2;font-size:11px;white-space:nowrap}.badge{display:inline-flex;align-items:center;gap:5px;background:#123d48;color:#9af3e2;padding:5px 8px;border-radius:20px;font-size:11px}.swatches{display:grid;grid-template-columns:repeat(5,1fr);gap:7px}.swatch{height:30px;border-radius:8px;border:2px solid #ffffff35;padding:0}.swatch.selected{outline:2px solid var(--aqua);outline-offset:2px}.hint{color:var(--muted);font-size:11px}.range{width:100%;accent-color:var(--teal)}.check{display:flex;gap:8px;align-items:center;color:#c7dfe4;font-size:12px}.check input{accent-color:var(--teal)}.progress{height:6px;border-radius:8px;background:#183d4c;overflow:hidden;margin-top:9px;display:none}.progress span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--teal),var(--aqua));transition:width .2s}.notice{font-size:11px;color:#b9d2d8;background:#102f3d;border:1px solid #214b5b;padding:9px;border-radius:9px;margin-top:10px}.toast{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:#e8fffb;color:#07303a;padding:10px 15px;border-radius:10px;box-shadow:var(--shadow);z-index:20;display:none;font-weight:650;max-width:90%;text-align:center}.print-preview{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;background:#fff;padding:8px;border-radius:6px}.print-preview img{width:100%;aspect-ratio:35/45;object-fit:cover}.hidden{display:none!important}
+@media(max-width:1050px){.workspace{grid-template-columns:190px minmax(260px,1fr)}.right-panel{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.right-panel h2{grid-column:1/-1}.right-panel .section{border:0;margin:0;padding:0}}
+@media(max-width:700px){.app{padding:9px}.top{align-items:flex-start}.brand h1{font-size:15px}.status{display:none}.workspace{display:flex;flex-direction:column}.left-panel{order:2;width:100%;padding:10px}.center-panel{order:1;width:100%;padding:10px}.right-panel{order:3;width:100%;display:block}.right-panel .section{border-top:1px solid #204655;margin-top:12px;padding-top:12px}.tool-list{grid-template-columns:repeat(3,1fr)}.tool-list button{font-size:11px;justify-content:center;text-align:center;flex-direction:column;gap:3px;padding:9px 4px}.tool-list .ico{font-size:18px}.canvas-wrap{min-height:420px}.stage{min-height:370px}.preview{max-height:350px}.top-actions button{padding:7px 9px;font-size:12px}.right-panel{display:block}}
+@media print{body{background:#fff}.app,.toast{display:none!important}#printArea{display:block!important;position:absolute;inset:0;background:#fff;padding:0}.print-sheet{width:100%;height:100%;display:grid;align-content:start;gap:3mm;padding:5mm}.print-photo{object-fit:cover;border:.1mm solid #ddd}}
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="top">
+    <div class="brand"><div class="logo">J</div><div><h1>JOS Passport Studio Pro</h1><p>Professional ID & Passport Photo Maker</p></div></div>
+    <div class="top-actions"><span class="status" id="fileStatus">No photo selected</span><button class="small" id="resetAll">↺ Reset</button><button class="primary" id="quickDownload">↓ Download</button></div>
+  </header>
+  <main class="workspace">
+    <aside class="panel left-panel">
+      <h2>Studio Tools</h2>
+      <div class="tool-list">
+        <button class="active" data-tool="upload"><span class="ico">＋</span>Upload</button>
+        <button data-tool="crop"><span class="ico">⌗</span>Crop</button>
+        <button data-tool="background"><span class="ico">◐</span>Background</button>
+        <button data-tool="enhance"><span class="ico">✧</span>Enhance</button>
+        <button data-tool="size"><span class="ico">▣</span>Photo Size</button>
+        <button data-tool="print"><span class="ico">▤</span>Print Sheet</button>
+      </div>
+      <div class="section">
+        <h2>Quick Actions</h2>
+        <div class="tool-list">
+          <button id="undoBtn"><span class="ico">↶</span>Undo</button>
+          <button id="redoBtn"><span class="ico">↷</span>Redo</button>
+          <button id="originalBtn"><span class="ico">◉</span>Original</button>
+        </div>
+      </div>
+      <div class="notice">Tip: ভালো ফলের জন্য মুখ স্পষ্ট, আলো সমান এবং মাথার চারপাশে কিছু ফাঁকা জায়গা আছে এমন ছবি ব্যবহার করুন।</div>
+    </aside>
+
+    <section class="panel center-panel canvas-wrap">
+      <div class="canvas-toolbar">
+        <div class="group"><span class="badge" id="modeBadge">READY TO EDIT</span><span class="hint" id="dimensionInfo">Output: —</span></div>
+        <div class="group"><button class="small" id="zoomOut">−</button><button class="small" id="zoomReset">100%</button><button class="small" id="zoomIn">＋</button></div>
+      </div>
+      <div class="stage" id="stage">
+        <div class="empty" id="emptyState"><div class="big">📷</div><strong>আপনার ছবি এখানে যোগ করুন</strong><p>JPG, PNG বা WebP ছবি নির্বাচন করুন</p><button class="primary" id="choosePhoto">Choose Photo</button><p class="hint">অথবা এখানে ছবি Drag & Drop করুন</p></div>
+        <img id="preview" class="preview hidden" alt="Photo preview">
+        <div class="crop-layer" id="cropLayer"><div class="crop-box" id="cropBox"><i class="handle tl" data-h="tl"></i><i class="handle tr" data-h="tr"></i><i class="handle bl" data-h="bl"></i><i class="handle br" data-h="br"></i></div><div class="crop-hint">চার কোণের হ্যান্ডেল টেনে Crop Area ঠিক করুন</div></div>
+      </div>
+      <div class="canvas-toolbar"><div class="group"><button class="small" id="fitBtn">Fit to screen</button><button class="small" id="flipBtn">↔ Flip</button><button class="small" id="rotateBtn">⟳ Rotate</button><button class="small primary" id="applyCropBtn">✓ Apply Crop</button><button class="small" id="cancelCropBtn">Cancel Crop</button></div><div class="group"><span class="hint" id="editStatus">Ready</span></div></div>
+    </section>
+
+    <aside class="panel right-panel">
+      <h2>Properties & Export</h2>
+      <div class="section" id="uploadSection">
+        <h2>Photo Input</h2>
+        <input type="file" id="photoInput" accept="image/*" class="hidden">
+        <button class="primary" style="width:100%" id="browseBtn">＋ Upload Photo</button>
+        <button style="width:100%;margin-top:7px" id="cameraBtn">◎ Use Camera</button>
+        <div class="field"><label>Recent image</label><span class="hint" id="inputName">No image loaded</span></div>
+      </div>
+      <div class="section" id="backgroundSection">
+        <h2>AI Background Removal</h2>
+        <button class="primary" style="width:100%" id="removeBgBtn">✦ Remove Background with AI</button>
+        <div class="progress" id="aiProgress"><span id="aiProgressBar"></span></div>
+        <p class="hint" id="aiStatus">AI model প্রথমবার লোড হতে সময় লাগতে পারে। Internet প্রয়োজন।</p>
+        <div class="field"><label>Background Color</label><div class="swatches" id="swatches">
+          <button class="swatch selected" data-color="#ffffff" style="background:#fff" title="White"></button>
+          <button class="swatch" data-color="#dceeff" style="background:#dceeff" title="Light Blue"></button>
+          <button class="swatch" data-color="#b9dcff" style="background:#b9dcff" title="Blue"></button>
+          <button class="swatch" data-color="#f4dede" style="background:#f4dede" title="Light Red"></button>
+          <button class="swatch" data-color="#d9e0e5" style="background:#d9e0e5" title="Grey"></button>
+        </div></div>
+        <div class="field"><label>Custom Color</label><input type="color" id="customColor" value="#ffffff"></div>
+        <div class="field"><label>Background Image</label><input type="file" id="bgImageInput" accept="image/*"></div>
+        <button class="small" id="clearBgImage">Remove Background Image</button>
+      </div>
+      <div class="section" id="sizeSection">
+        <h2>Photo Size</h2>
+        <div class="field"><label>Preset</label><select id="sizePreset"><option value="35x45">Indian Passport / 35 × 45 mm</option><option value="51x51">2 × 2 inch / 51 × 51 mm</option><option value="25x35">25 × 35 mm</option><option value="custom">Custom size</option></select></div>
+        <div class="row"><div class="field"><label>Width (mm)</label><input type="number" id="widthMM" min="10" max="150" value="35"></div><div class="field"><label>Height (mm)</label><input type="number" id="heightMM" min="10" max="200" value="45"></div></div>
+        <div class="field"><label>Resolution (DPI)</label><select id="dpi"><option>300</option><option>600</option><option>200</option><option>150</option></select></div>
+        <div class="hint" id="pixelInfo">413 × 531 px @ 300 DPI</div>
+      </div>
+      <div class="section" id="enhanceSection">
+        <h2>Photo Enhancement</h2>
+        <div class="field"><label>Brightness <b id="brightVal">100%</b></label><input class="range" id="brightness" type="range" min="50" max="150" value="100"></div>
+        <div class="field"><label>Contrast <b id="contrastVal">100%</b></label><input class="range" id="contrast" type="range" min="50" max="150" value="100"></div>
+        <div class="field"><label>Saturation <b id="satVal">100%</b></label><input class="range" id="saturation" type="range" min="0" max="180" value="100"></div>
+        <div class="field"><label>Sharpness <b id="sharpVal">0</b></label><input class="range" id="sharpness" type="range" min="0" max="3" step=".5" value="0"></div>
+        <button class="small" id="resetAdjust">Reset Adjustments</button>
+      </div>
+      <div class="section" id="printSection">
+        <h2>Print Sheet</h2>
+        <div class="field"><label>Paper</label><select id="paper"><option value="4x6">4 × 6 inch</option><option value="5x7">5 × 7 inch</option><option value="a4">A4</option></select></div>
+        <div class="field"><label>Copies</label><input type="number" id="copies" min="1" max="40" value="8"></div>
+        <div class="field"><label>Gap (mm)</label><input type="number" id="gapMM" min="0" max="15" value="2"></div>
+        <button class="primary" style="width:100%" id="printBtn">▤ Create Print Sheet</button>
+        <button style="width:100%;margin-top:7px" id="savePrintJpg">Download Sheet JPG</button>
+      </div>
+      <div class="section">
+        <h2>Export Photo</h2>
+        <div class="field"><label>Format</label><select id="format"><option value="image/jpeg">JPG</option><option value="image/png">PNG</option></select></div>
+        <div class="field"><label>Quality <b id="qualityVal">95%</b></label><input class="range" id="quality" type="range" min="60" max="100" value="95"></div>
+        <button class="primary" style="width:100%" id="downloadBtn">↓ Download Passport Photo</button>
+        <button style="width:100%;margin-top:7px" id="downloadPng">Download PNG (Transparent)</button>
+      </div>
+    </aside>
+  </main>
+</div>
+<div id="printArea" class="hidden"></div>
+<div class="toast" id="toast"></div>
+<script>
+(()=>{
+'use strict';
+const $=id=>document.getElementById(id);
+const state={original:null,subject:null,bgImage:null,photoName:'',bg:'#ffffff',removed:false,rotation:0,flip:false,zoom:1,crop:null,cropActive:false,history:[],future:[],adjust:{brightness:100,contrast:100,saturation:100,sharpness:0},lastBlob:null};
+const stage=$('stage'),preview=$('preview'),cropLayer=$('cropLayer'),cropBox=$('cropBox');
+let cameraStream=null, cropDrag=null, displayRect=null, aiModule=null;
+function toast(msg){const t=$('toast');t.textContent=msg;t.style.display='block';clearTimeout(toast.timer);toast.timer=setTimeout(()=>t.style.display='none',2600)}
+function setStatus(msg){$('editStatus').textContent=msg}
+function loadImage(src){return new Promise((res,rej)=>{const im=new Image();im.onload=()=>res(im);im.onerror=rej;im.src=src})}
+function dataURL(blob){return new Promise(res=>{const r=new FileReader();r.onload=()=>res(r.result);r.readAsDataURL(blob)})}
+function saveHistory(){if(!state.subject)return;state.history.push({subject:state.subject,bg:state.bg,removed:state.removed,rotation:state.rotation,flip:state.flip,crop:state.crop,adjust:{...state.adjust},bgImage:state.bgImage});if(state.history.length>20)state.history.shift();state.future=[]}
+async function loadFile(file){if(!file||!file.type.startsWith('image/'))return toast('Please select a valid image.');try{const url=await dataURL(file),im=await loadImage(url);state.original=im;state.subject=im;state.photoName=file.name;state.bgImage=null;state.bg='#ffffff';state.removed=false;state.rotation=0;state.flip=false;state.crop=null;state.adjust={brightness:100,contrast:100,saturation:100,sharpness:0};state.history=[];state.future=[];syncControls();render();$('emptyState').classList.add('hidden');preview.classList.remove('hidden');$('fileStatus').textContent=file.name;$('inputName').textContent=file.name;toast('Photo loaded successfully')}catch(e){toast('ছবিটি খোলা যায়নি। অন্য ছবি চেষ্টা করুন।')}}
+function syncControls(){for(const [k,id] of Object.entries({brightness:'brightness',contrast:'contrast',saturation:'saturation',sharpness:'sharpness'}))$(id).value=state.adjust[k];$('brightVal').textContent=state.adjust.brightness+'%';$('contrastVal').textContent=state.adjust.contrast+'%';$('satVal').textContent=state.adjust.saturation+'%';$('sharpVal').textContent=state.adjust.sharpness}
+function getOutputSize(){const w=Math.max(10,Number($('widthMM').value)||35),h=Math.max(10,Number($('heightMM').value)||45),dpi=Number($('dpi').value)||300;return {w,h,dpi,pw:Math.round(w/25.4*dpi),ph:Math.round(h/25.4*dpi)}}
+function updateSize(){const s=getOutputSize();$('pixelInfo').textContent=`${s.pw} × ${s.ph} px @ ${s.dpi} DPI`;$('dimensionInfo').textContent=`Output: ${s.pw} × ${s.ph} px`;}
+function getImageTransform(){const im=state.subject;if(!im)return null;let w=im.naturalWidth||im.width,h=im.naturalHeight||im.height;const c=document.createElement('canvas');c.width=(state.rotation%180===0)?w:h;c.height=(state.rotation%180===0)?h:w;const x=c.getContext('2d');x.translate(c.width/2,c.height/2);x.rotate(state.rotation*Math.PI/180);x.scale(state.flip?-1:1,1);x.drawImage(im,-w/2,-h/2);return c}
+function makeStagePreview(){
+ const subject=getImageTransform();
+ const c=document.createElement('canvas');
+ c.width=subject.width;c.height=subject.height;
+ const x=c.getContext('2d');
+ // Paint the selected background first, so the transparent AI cut-out reveals it.
+ if(state.bgImage){
+  const bg=state.bgImage;
+  const scale=Math.max(c.width/(bg.naturalWidth||bg.width),c.height/(bg.naturalHeight||bg.height));
+  const w=(bg.naturalWidth||bg.width)*scale,h=(bg.naturalHeight||bg.height)*scale;
+  x.drawImage(bg,(c.width-w)/2,(c.height-h)/2,w,h);
+ }else{
+  x.fillStyle=state.bg||'#ffffff';
+  x.fillRect(0,0,c.width,c.height);
+ }
+ x.save();
+ x.filter=`brightness(${state.adjust.brightness}%) contrast(${state.adjust.contrast}%) saturate(${state.adjust.saturation}%)`;
+ x.drawImage(subject,0,0);
+ x.restore();
+ return c;
+}
+function render(){if(!state.subject){return}const composed=makeStagePreview();preview.src=composed.toDataURL('image/png');preview.style.filter='none';preview.style.transform=`scale(${state.zoom})`;preview.classList.remove('hidden');$('emptyState').classList.add('hidden');$('modeBadge').textContent=state.removed?'BACKGROUND REMOVED':'PHOTO READY';$('fileStatus').textContent=state.photoName||'Photo loaded';updateSize();if(state.cropActive)showCrop()}
+function getCropRect(){const img=preview.getBoundingClientRect(),st=stage.getBoundingClientRect();return {left:img.left-st.left,top:img.top-st.top,width:img.width,height:img.height}}
+function showCrop(){if(!state.subject)return toast('আগে ছবি Upload করুন');cropLayer.style.display='block';const r=getCropRect();displayRect=r;if(!state.crop){const x=r.left+r.width*.1,y=r.top+r.height*.08,w=r.width*.8,h=r.height*.84;state.crop={x,y,w,h}}placeCropBox()}
+function placeCropBox(){if(!state.crop)return;const r=state.crop;cropBox.style.left=r.x+'px';cropBox.style.top=r.y+'px';cropBox.style.width=r.w+'px';cropBox.style.height=r.h+'px'}
+function hideCrop(){cropLayer.style.display='none';state.cropActive=false}
+function beginCrop(){if(!state.subject)return toast('আগে ছবি Upload করুন');state.cropActive=true;showCrop();$('modeBadge').textContent='CROP MODE';setStatus('চার কোণ টেনে crop area ঠিক করুন');}
+function cropPointerDown(e){const handle=e.target.closest('.handle');const boxRect=cropBox.getBoundingClientRect(),st=stage.getBoundingClientRect();cropDrag={handle:handle?handle.dataset.h:'move',startX:e.clientX,startY:e.clientY,initial:{...state.crop}};e.preventDefault()}
+function cropPointerMove(e){if(!cropDrag)return;const dx=e.clientX-cropDrag.startX,dy=e.clientY-cropDrag.startY,r={...cropDrag.initial};const bounds=displayRect;if(cropDrag.handle==='move'){r.x=Math.max(bounds.left,Math.min(bounds.left+bounds.width-r.w,r.x+dx));r.y=Math.max(bounds.top,Math.min(bounds.top+bounds.height-r.h,r.y+dy))}else{if(cropDrag.handle.includes('l')){r.x=Math.min(r.x+dx,r.x+r.w-35);r.w=cropDrag.initial.w-(r.x-cropDrag.initial.x)}if(cropDrag.handle.includes('r'))r.w=Math.max(35,cropDrag.initial.w+dx);if(cropDrag.handle.includes('t')){r.y=Math.min(r.y+dy,r.y+r.h-35);r.h=cropDrag.initial.h-(r.y-cropDrag.initial.y)}if(cropDrag.handle.includes('b'))r.h=Math.max(35,cropDrag.initial.h+dy);r.x=Math.max(bounds.left,r.x);r.y=Math.max(bounds.top,r.y);r.w=Math.min(r.w,bounds.left+bounds.width-r.x);r.h=Math.min(r.h,bounds.top+bounds.height-r.y)}state.crop=r;placeCropBox()}
+function cropPointerUp(){cropDrag=null}
+async function applyCrop(){if(!state.subject||!state.crop)return toast('Crop area নেই');saveHistory();const transformed=getImageTransform(),r=state.crop,st=stage.getBoundingClientRect(),ir=preview.getBoundingClientRect();const scaleX=transformed.width/ir.width,scaleY=transformed.height/ir.height;const sx=Math.max(0,(r.x-(ir.left-st.left))*scaleX),sy=Math.max(0,(r.y-(ir.top-st.top))*scaleY),sw=Math.min(transformed.width-sx,r.w*scaleX),sh=Math.min(transformed.height-sy,r.h*scaleY);const c=document.createElement('canvas');c.width=Math.max(1,Math.round(sw));c.height=Math.max(1,Math.round(sh));c.getContext('2d').drawImage(transformed,sx,sy,sw,sh,0,0,c.width,c.height);state.subject=await loadImage(c.toDataURL('image/png'));state.original=state.subject;state.rotation=0;state.flip=false;state.crop=null;hideCrop();render();toast('Crop applied')}
+function makeCanvas({transparent=false}={}){const s=getOutputSize(),c=document.createElement('canvas');c.width=s.pw;c.height=s.ph;const x=c.getContext('2d');if(!transparent){if(state.bgImage){x.drawImage(state.bgImage,0,0,c.width,c.height)}else{x.fillStyle=state.bg;x.fillRect(0,0,c.width,c.height)}}const im=state.subject;if(im){const iw=im.naturalWidth,ih=im.naturalHeight;const ratio=Math.min(c.width/iw,c.height/ih);const dw=iw*ratio,dh=ih*ratio; x.save();x.filter=`brightness(${state.adjust.brightness}%) contrast(${state.adjust.contrast}%) saturate(${state.adjust.saturation}%)`;x.drawImage(im,(c.width-dw)/2,(c.height-dh)/2,dw,dh);x.restore()}return c}
+function downloadCanvas(c,type='image/jpeg',name='JOS-Passport-Photo'){c.toBlob(blob=>{if(!blob)return toast('Export failed');const a=document.createElement('a');const url=URL.createObjectURL(blob);a.href=url;a.download=name+(type==='image/png'?'.png':'.jpg');a.click();setTimeout(()=>URL.revokeObjectURL(url),1500)},type,Number($('quality').value)/100)}
+function downloadPhoto(type){if(!state.subject)return toast('আগে ছবি Upload করুন');const c=makeCanvas({transparent:type==='image/png'});downloadCanvas(c,type);toast('Download শুরু হয়েছে')}
+async function removeBackground(){
+ if(!state.subject)return toast('আগে ছবি Upload করুন');
+ if(!navigator.onLine)return toast('AI Background Removal-এর জন্য Internet প্রয়োজন');
+ const btn=$('removeBgBtn');btn.disabled=true;
+ $('aiProgress').style.display='block';$('aiProgressBar').style.width='3%';
+ $('aiStatus').textContent='AI engine loading… প্রথমবার model download হতে সময় লাগতে পারে।';
+ try{
+  if(!aiModule){
+   const {pipeline,env}=await import('https://cdn.jsdelivr.net/npm/@huggingface/transformers@3.7.2');
+   env.allowLocalModels=false;
+   aiModule=await pipeline('background-removal','Xenova/modnet',{
+    progress_callback:p=>{
+     if(p&&typeof p.progress==='number'){
+      const pct=Math.max(3,Math.min(95,Math.round(p.progress)));
+      $('aiProgressBar').style.width=pct+'%';
+      $('aiStatus').textContent=(p.file||p.status||'AI model loading')+' '+pct+'%';
+     }
+    }
+   });
+  }
+  $('aiStatus').textContent='AI ছবির subject আলাদা করছে…';
+  $('aiProgressBar').style.width='35%';
+  const inputCanvas=document.createElement('canvas');
+  inputCanvas.width=state.subject.naturalWidth||state.subject.width;
+  inputCanvas.height=state.subject.naturalHeight||state.subject.height;
+  inputCanvas.getContext('2d').drawImage(state.subject,0,0);
+  const inputDataURL=inputCanvas.toDataURL('image/png');
+  const result=await aiModule(inputDataURL);
+  if(!result||!result[0]||typeof result[0].toCanvas!=='function'){
+   throw new Error('AI কোনো valid transparent image ফেরত দেয়নি।');
+  }
+  const raw=result[0].toCanvas();
+  const tmp=document.createElement('canvas');
+  tmp.width=inputCanvas.width;tmp.height=inputCanvas.height;
+  const t=tmp.getContext('2d',{willReadFrequently:true});
+  t.clearRect(0,0,tmp.width,tmp.height);
+  t.drawImage(raw,0,0,tmp.width,tmp.height);
+  const pixels=t.getImageData(0,0,tmp.width,tmp.height);
+  let transparent=0;
+  for(let i=3;i<pixels.data.length;i+=4){if(pixels.data[i]<245)transparent++}
+  if(!transparent)throw new Error('AI output-এ transparency পাওয়া যায়নি। অন্য ছবি দিয়ে চেষ্টা করুন।');
+  saveHistory();
+  state.subject=await loadImage(tmp.toDataURL('image/png'));
+  state.removed=true;state.bg='#ffffff';state.bgImage=null;
+  $('aiProgressBar').style.width='100%';
+  $('aiStatus').textContent='Background Remove সম্পন্ন! এখন Background Color বা Image নির্বাচন করুন।';
+  render();toast('AI Background Removal সম্পন্ন');
+ }catch(err){
+  console.error('JOS AI Background Removal:',err);
+  $('aiStatus').textContent=err&&err.message?err.message:'AI model load/process করা যায়নি। Chrome ও Internet পরীক্ষা করুন।';
+  toast('AI Background Removal ব্যর্থ হয়েছে। Error message দেখুন।');
+ }finally{
+  btn.disabled=false;
+  setTimeout(()=>$('aiProgress').style.display='none',1800);
+ }
+}
+function setBg(color){state.bg=color;state.bgImage=null;$('customColor').value=color;document.querySelectorAll('.swatch').forEach(b=>b.classList.toggle('selected',b.dataset.color===color));render()}
+function undo(){if(!state.history.length)return toast('Undo history নেই');state.future.push(snapshot());restore(state.history.pop());render();toast('Undo')}
+function redo(){if(!state.future.length)return toast('Redo history নেই');state.history.push(snapshot());restore(state.future.pop());render();toast('Redo')}
+function snapshot(){return {subject:state.subject,bg:state.bg,removed:state.removed,rotation:state.rotation,flip:state.flip,crop:state.crop,adjust:{...state.adjust},bgImage:state.bgImage}}
+function restore(s){Object.assign(state,s)}
+function resetAdjust(){state.adjust={brightness:100,contrast:100,saturation:100,sharpness:0};syncControls();render()}
+function makePrintCanvas(){
+ if(!state.subject)return null;
+ const paper=$('paper').value;
+ const dims=paper==='4x6'?[1200,1800]:paper==='5x7'?[1500,2100]:[2480,3508];
+ const c=document.createElement('canvas');c.width=dims[0];c.height=dims[1];
+ const x=c.getContext('2d');x.fillStyle='#fff';x.fillRect(0,0,c.width,c.height);
+ const s=getOutputSize(),copies=Math.min(40,Math.max(1,Number($('copies').value)||8));
+ const mmScale=c.width/(paper==='a4'?210:paper==='4x6'?101.6:127);
+ const gap=Math.max(0,Number($('gapMM').value)||0)*mmScale;
+ const pw=s.w/25.4*300,ph=s.h/25.4*300;
+ let cols=Math.max(1,Math.floor((c.width-gap)/(pw+gap)));
+ let rows=Math.ceil(copies/cols);
+ const scale=Math.min(1,(c.width-gap*(cols+1))/(cols*pw),(c.height-gap*(rows+1))/(rows*ph));
+ const w=pw*scale,h=ph*scale;
+ const usedRows=Math.ceil(copies/cols);
+ const gridTop=gap,gridLeft=gap,gridBottom=gridTop+usedRows*h+(usedRows-1)*gap;
+ const gridRight=gridLeft+cols*w+(cols-1)*gap;
+ const photo=makeCanvas();
+ const borderWidth=Math.max(2,Math.round(mmScale*0.20));
+ // Draw each photo first; draw the black border just inside its exact outside edge.
+ for(let i=0;i<copies;i++){
+  const col=i%cols,row=Math.floor(i/cols),xx=gap+col*(w+gap),yy=gap+row*(h+gap);
+  x.drawImage(photo,xx,yy,w,h);
+  x.save();x.strokeStyle='#111';x.lineWidth=borderWidth;
+  x.strokeRect(xx+borderWidth/2,yy+borderWidth/2,Math.max(0,w-borderWidth),Math.max(0,h-borderWidth));
+  x.restore();
+ }
+ // Light dashed cutting guides centered in every inter-photo gap.
+ if(gap>=2){
+  x.save();x.strokeStyle='#888';x.lineWidth=Math.max(1,Math.round(mmScale*0.12));
+  x.setLineDash([Math.max(3,mmScale*1.1),Math.max(2,mmScale*0.7)]);
+  x.lineCap='butt';
+  for(let col=0;col<cols-1;col++){
+   const gx=gap+col*(w+gap)+w+gap/2;
+   x.beginPath();x.moveTo(gx,gridTop);x.lineTo(gx,gridBottom);x.stroke();
+  }
+  for(let row=0;row<usedRows-1;row++){
+   const gy=gap+row*(h+gap)+h+gap/2;
+   x.beginPath();x.moveTo(gridLeft,gy);x.lineTo(gridRight,gy);x.stroke();
+  }
+  x.restore();
+ }
+ return c;
+}
+function showPrint(){const c=makePrintCanvas();if(!c)return toast('আগে ছবি Upload করুন');const area=$('printArea');area.innerHTML='';const img=document.createElement('img');img.src=c.toDataURL('image/jpeg',.95);img.style.cssText='max-width:100%;max-height:90vh;object-fit:contain;display:block;margin:auto';const bar=document.createElement('div');bar.style.cssText='position:fixed;top:10px;left:0;right:0;text-align:center;z-index:5';const b=document.createElement('button');b.textContent='Print / Save as PDF';b.style.cssText='background:#0b8f88;color:white;padding:12px 20px;border:0;border-radius:9px';b.onclick=()=>window.print();const close=document.createElement('button');close.textContent='Close';close.style.marginLeft='8px';close.onclick=()=>{area.classList.add('hidden');area.innerHTML=''};bar.append(b,close);area.append(bar,img);area.classList.remove('hidden')}
+function updatePrintDownload(){const c=makePrintCanvas();if(c)downloadCanvas(c,'image/jpeg','JOS-Print-Sheet')}
+function setTool(tool){document.querySelectorAll('[data-tool]').forEach(b=>b.classList.toggle('active',b.dataset.tool===tool));const sections={upload:'uploadSection',crop:'sizeSection',background:'backgroundSection',enhance:'enhanceSection',size:'sizeSection',print:'printSection'};const target=sections[tool];if(target){$(target).scrollIntoView({behavior:'smooth',block:'nearest'})}if(tool==='crop')beginCrop();else if(state.cropActive)hideCrop();if(tool==='upload')$('photoInput').click()}
+$('choosePhoto').onclick=$('browseBtn').onclick=()=>$('photoInput').click();
+$('photoInput').onchange=e=>{loadFile(e.target.files[0]);e.target.value=''};
+$('cameraBtn').onclick=async()=>{try{cameraStream=await navigator.mediaDevices.getUserMedia({video:{facingMode:'user'}});const v=document.createElement('video');v.srcObject=cameraStream;v.autoplay=true;v.playsInline=true;const modal=document.createElement('div');modal.style.cssText='position:fixed;inset:0;background:#00131aee;z-index:30;display:grid;place-items:center;padding:18px';const box=document.createElement('div');box.style.cssText='background:#0d2938;padding:14px;border-radius:14px;max-width:500px;width:100%;text-align:center';v.style.cssText='width:100%;max-height:65vh;object-fit:contain';const snap=document.createElement('button');snap.className='primary';snap.textContent='Capture Photo';snap.onclick=()=>{const c=document.createElement('canvas');c.width=v.videoWidth;c.height=v.videoHeight;c.getContext('2d').drawImage(v,0,0);c.toBlob(b=>loadFile(new File([b],'camera-photo.jpg',{type:'image/jpeg'})),'image/jpeg',.95);cameraStream.getTracks().forEach(t=>t.stop());modal.remove()};const close=document.createElement('button');close.textContent='Close';close.style.marginLeft='8px';close.onclick=()=>{cameraStream.getTracks().forEach(t=>t.stop());modal.remove()};box.append(v,snap,close);modal.append(box);document.body.append(modal)}catch(e){toast('Camera permission পাওয়া যায়নি। HTTPS ও camera permission পরীক্ষা করুন।')}};
+$('stage').addEventListener('dragover',e=>{e.preventDefault();stage.style.borderColor='var(--aqua)'});
+$('stage').addEventListener('dragleave',()=>stage.style.borderColor='');
+$('stage').addEventListener('drop',e=>{e.preventDefault();stage.style.borderColor='';loadFile(e.dataTransfer.files[0])});
+document.querySelectorAll('[data-tool]').forEach(b=>b.onclick=()=>setTool(b.dataset.tool));
+$('cropBox').addEventListener('pointerdown',cropPointerDown);window.addEventListener('pointermove',cropPointerMove);window.addEventListener('pointerup',cropPointerUp);
+$('applyCropBtn').onclick=applyCrop;$('cancelCropBtn').onclick=()=>{hideCrop();state.crop=null;setStatus('Crop cancelled');render()};
+$('flipBtn').onclick=()=>{if(!state.subject)return;saveHistory();state.flip=!state.flip;render()};
+$('rotateBtn').onclick=()=>{if(!state.subject)return;saveHistory();state.rotation=(state.rotation+90)%360;render()};
+$('zoomIn').onclick=()=>{state.zoom=Math.min(1.8,state.zoom+.1);render()};$('zoomOut').onclick=()=>{state.zoom=Math.max(.5,state.zoom-.1);render()};$('zoomReset').onclick=()=>{state.zoom=1;render()};$('fitBtn').onclick=()=>{state.zoom=1;render()};
+$('removeBgBtn').onclick=removeBackground;
+document.querySelectorAll('.swatch').forEach(b=>b.onclick=()=>setBg(b.dataset.color));
+$('customColor').oninput=e=>setBg(e.target.value);
+$('bgImageInput').onchange=async e=>{const f=e.target.files[0];if(!f)return;try{state.bgImage=await loadImage(await dataURL(f));document.querySelectorAll('.swatch').forEach(b=>b.classList.remove('selected'));render();toast('Background image applied')}catch{toast('Background image load হয়নি')}finally{e.target.value=''}};
+$('clearBgImage').onclick=()=>{state.bgImage=null;render()};
+['sizePreset','widthMM','heightMM','dpi'].forEach(id=>$(id).addEventListener('change',()=>{if(id==='sizePreset'){const v=$('sizePreset').value;if(v==='35x45'){$('widthMM').value=35;$('heightMM').value=45}else if(v==='51x51'){$('widthMM').value=51;$('heightMM').value=51}else if(v==='25x35'){$('widthMM').value=25;$('heightMM').value=35}}updateSize();render()}));
+[['brightness','brightness','brightVal','%'],['contrast','contrast','contrastVal','%'],['saturation','saturation','satVal','%'],['sharpness','sharpness','sharpVal','']].forEach(([id,key,label,suffix])=>$(id).oninput=e=>{state.adjust[key]=Number(e.target.value);$(label).textContent=e.target.value+suffix;render()});
+$('resetAdjust').onclick=resetAdjust;$('quality').oninput=e=>$('qualityVal').textContent=e.target.value+'%';
+$('downloadBtn').onclick=()=>downloadPhoto($('format').value);$('quickDownload').onclick=()=>downloadPhoto($('format').value);$('downloadPng').onclick=()=>downloadPhoto('image/png');
+$('printBtn').onclick=showPrint;$('savePrintJpg').onclick=updatePrintDownload;
+$('undoBtn').onclick=undo;$('redoBtn').onclick=redo;
+$('originalBtn').onclick=()=>{if(!state.original)return toast('Original photo নেই');saveHistory();state.subject=state.original;state.bg='#ffffff';state.bgImage=null;state.removed=false;state.rotation=0;state.flip=false;state.crop=null;resetAdjust();render()};
+$('resetAll').onclick=()=>{if(!state.original)return;state.subject=state.original;state.bg='#ffffff';state.bgImage=null;state.removed=false;state.rotation=0;state.flip=false;state.crop=null;state.zoom=1;resetAdjust();hideCrop();render();toast('Workspace reset')};
+$('cropLayer').addEventListener('dblclick',applyCrop);
+$('cropLayer').addEventListener('contextmenu',e=>{e.preventDefault();applyCrop()});
+$('cropLayer').addEventListener('click',e=>{if(e.target===cropLayer)applyCrop()});
+document.addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='z'){e.preventDefault();undo()}if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='y'){e.preventDefault();redo()}if(e.key==='Escape'&&state.cropActive)hideCrop()});
+window.addEventListener('resize',()=>{if(state.cropActive){state.crop=null;showCrop()}});
+updateSize();
+})();
+</script>
+</body>
+</html>
